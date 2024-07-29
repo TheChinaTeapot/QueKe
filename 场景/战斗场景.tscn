@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dkcnriblmun6t" path="res://场景/手牌ui.tscn" id="1_b8q2a"]
 [ext_resource type="PackedScene" uid="uid://bd4tm7ar65wtw" path="res://场景/卡牌目标选择器.tscn" id="1_ufcdk"]
-[ext_resource type="PackedScene" uid="uid://dj34xrfcubn6q" path="res://场景/剩余出牌数.tscn" id="2_gomvv"]
+[ext_resource type="Script" path="res://场景/战斗场景.gd" id="1_xejil"]
 [ext_resource type="PackedScene" uid="uid://b22du4snj5dnv" path="res://场景/玩家.tscn" id="2_mlo1n"]
 [ext_resource type="PackedScene" uid="uid://by17jrd53lmdo" path="res://场景/敌人.tscn" id="3_6vh0o"]
 [ext_resource type="Resource" uid="uid://b5l8hm4j2y53c" path="res://资源/角色数据/玩家/初始角色.tres" id="3_yuqmt"]
@@ -12,6 +12,7 @@
 size = Vector2(1151, 498)
 
 [node name="战斗场景" type="Node2D"]
+script = ExtResource("1_xejil")
 
 [node name="卡牌目标选择器" parent="." instance=ExtResource("1_ufcdk")]
 
@@ -35,10 +36,3 @@ position = Vector2(878, 99)
 stats = ExtResource("5_5vqqm")
 
 [node name="手牌ui" parent="." instance=ExtResource("1_b8q2a")]
-
-[node name="剩余出牌数" parent="." instance=ExtResource("2_gomvv")]
-offset_left = 5.0
-offset_top = 442.0
-offset_right = 85.0
-offset_bottom = 522.0
-character_stats = ExtResource("3_yuqmt")

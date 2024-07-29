@@ -1,10 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://cvhehu3ciefxl"]
+[gd_scene load_steps=8 format=3 uid="uid://cvhehu3ciefxl"]
 
 [ext_resource type="Script" path="res://脚本/雀牌ui.gd" id="2_20ijn"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="3_3hj3m"]
 [ext_resource type="Resource" uid="uid://cudg2qh2k04ew" path="res://资源/卡牌数据/卡牌/卡牌/万/七万.tres" id="3_rnhbf"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="4_uufr6"]
-[ext_resource type="Resource" uid="uid://b5l8hm4j2y53c" path="res://资源/角色数据/玩家/初始角色.tres" id="4_xskc6"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="5_frsx2"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="6_osvxq"]
 
@@ -24,7 +23,6 @@ grow_vertical = 2
 pivot_offset = Vector2(48, 64)
 script = ExtResource("2_20ijn")
 card = ExtResource("3_rnhbf")
-chars = ExtResource("4_xskc6")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1

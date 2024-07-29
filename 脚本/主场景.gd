@@ -2,11 +2,17 @@ extends Node
 
 @onready var StateMachine: StateChart = $"状态机"
 
+@export var character:Character
+
+var new_character:Character
+
 func _on_初始化_state_entered() -> void:
-	print("初始化")
+	new_character = character.create_instance()
 
 func _on_战斗_state_entered() -> void:
-	self.add_child(preload("res://场景/战斗场景.tscn").instantiate())
+	var fight_node = preload("res://场景/战斗场景.tscn").instantiate()
+	self.add_child(fight_node)
+	fight_node.character = character
 
 func _on_非战斗状态_state_entered() -> void:
 	print("进入非战斗状态")
@@ -25,27 +31,6 @@ func _on_响应_state_entered() -> void:
 
 func _on_结算_state_entered() -> void:
 	print("进入结算阶段")
-
-func _on_抽牌_state_entered() -> void:
-	print("抽牌")
-
-func _on_出牌_state_entered() -> void:
-	print("出牌")
-
-func _on_默认_state_entered() -> void:
-	print("默认状态")
-
-func _on_卡牌点击_state_entered() -> void:
-	print("点击卡牌")
-
-func _on_卡牌拖动_state_entered() -> void:
-	print("拖动卡牌")
-
-func _on_卡牌打出_state_entered() -> void:
-	print("打出卡牌")
-
-func _on_卡牌销毁_state_entered() -> void:
-	print("销毁卡牌")
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_down"):

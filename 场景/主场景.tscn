@@ -1,13 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://klpyc8jgln6v"]
+[gd_scene load_steps=7 format=3 uid="uid://klpyc8jgln6v"]
 
 [ext_resource type="Script" path="res://脚本/主场景.gd" id="1_qdepg"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="2_bum2j"]
+[ext_resource type="Resource" uid="uid://b5l8hm4j2y53c" path="res://资源/角色数据/玩家/初始角色.tres" id="2_ui80u"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="3_ugdm6"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="4_kgcc7"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="5_5ti5d"]
 
 [node name="主场景" type="Node"]
 script = ExtResource("1_qdepg")
+character = ExtResource("2_ui80u")
 
 [node name="状态机" type="Node" parent="." groups=["state"]]
 script = ExtResource("2_bum2j")
@@ -89,6 +91,7 @@ delay_in_seconds = "0.0"
 [connection signal="state_entered" from="状态机/状态机/初始化" to="." method="_on_初始化_state_entered"]
 [connection signal="state_entered" from="状态机/状态机/战斗" to="." method="_on_战斗_state_entered"]
 [connection signal="state_entered" from="状态机/状态机/战斗/战斗初始化" to="." method="_on_战斗初始化_state_entered"]
+[connection signal="state_entered" from="状态机/状态机/战斗/玩家回合" to="." method="_on_玩家回合_state_entered"]
 [connection signal="state_entered" from="状态机/状态机/战斗/敌人回合" to="." method="_on_敌人回合_state_entered"]
 [connection signal="state_entered" from="状态机/状态机/战斗/响应" to="." method="_on_响应_state_entered"]
 [connection signal="state_entered" from="状态机/状态机/战斗/结算" to="." method="_on_结算_state_entered"]

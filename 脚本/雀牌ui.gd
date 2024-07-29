@@ -1,7 +1,7 @@
 extends Control
 class_name CardUI
 
-#signal reParent(WitchCard:CardUI)
+signal reParent(CardUI)
 
 @onready var panel: Panel = $Panel
 @onready var 图片: TextureRect = $"Panel/VBoxContainer/HBoxContainer/图片"
@@ -111,6 +111,7 @@ func _on_mouse_exited() -> void:
 
 func _on_默认_state_entered() -> void:
 	self.theme = Theme1
+	reParent.emit(self)
 	self.pivot_offset = Vector2.ZERO
 
 func _on_默认_state_input(event: InputEvent) -> void:
@@ -134,8 +135,8 @@ func _on_卡牌拖动_state_entered() -> void:
 	var UI := get_tree().get_first_node_in_group("UI")
 	if UI :
 		self.reparent(UI)
-		self.theme = Theme2
-		events.cardDragStart.emit(self)
+	self.theme = Theme2
+	events.cardDragStart.emit(self)
 	
 	minimumDragTimeElapsed = false
 	var thresholdTimer := get_tree().create_timer(DRAG_MINMUM_THRESHOLD,false)
