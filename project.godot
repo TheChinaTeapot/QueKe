@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="六州：雀客"
+run/main_scene="res://场景/主场景.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://外部资源/图像/六州标志 2.0 组合 无处理.png"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot_state_charts/plugin.cfg")
 
 [rendering]
 

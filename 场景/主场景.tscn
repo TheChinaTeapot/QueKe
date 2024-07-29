@@ -1,0 +1,157 @@
+[gd_scene load_steps=6 format=3 uid="uid://klpyc8jgln6v"]
+
+[ext_resource type="Script" path="res://脚本/主场景.gd" id="1_qdepg"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="2_bum2j"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="3_ugdm6"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="4_kgcc7"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="5_5ti5d"]
+
+[node name="主场景" type="Node"]
+script = ExtResource("1_qdepg")
+
+[node name="状态机" type="Node" parent="."]
+script = ExtResource("2_bum2j")
+
+[node name="状态机" type="Node" parent="状态机"]
+script = ExtResource("3_ugdm6")
+initial_state = NodePath("初始化")
+
+[node name="初始化" type="Node" parent="状态机/状态机"]
+script = ExtResource("4_kgcc7")
+
+[node name="状态转换" type="Node" parent="状态机/状态机/初始化"]
+script = ExtResource("5_5ti5d")
+to = NodePath("../../战斗")
+event = &"战斗"
+delay_in_seconds = "0.0"
+
+[node name="战斗" type="Node" parent="状态机/状态机"]
+script = ExtResource("3_ugdm6")
+initial_state = NodePath("战斗初始化")
+
+[node name="战斗初始化" type="Node" parent="状态机/状态机/战斗"]
+script = ExtResource("4_kgcc7")
+
+[node name="状态转换" type="Node" parent="状态机/状态机/战斗/战斗初始化"]
+script = ExtResource("5_5ti5d")
+to = NodePath("../../玩家回合")
+delay_in_seconds = "0.0"
+
+[node name="玩家回合" type="Node" parent="状态机/状态机/战斗"]
+script = ExtResource("3_ugdm6")
+initial_state = NodePath("抽牌")
+
+[node name="抽牌" type="Node" parent="状态机/状态机/战斗/玩家回合"]
+script = ExtResource("4_kgcc7")
+
+[node name="状态转换" type="Node" parent="状态机/状态机/战斗/玩家回合/抽牌"]
+script = ExtResource("5_5ti5d")
+to = NodePath("../../出牌")
+delay_in_seconds = "0.0"
+
+[node name="出牌" type="Node" parent="状态机/状态机/战斗/玩家回合"]
+script = ExtResource("3_ugdm6")
+initial_state = NodePath("默认")
+
+[node name="默认" type="Node" parent="状态机/状态机/战斗/玩家回合/出牌"]
+script = ExtResource("4_kgcc7")
+
+[node name="状态转换" type="Node" parent="状态机/状态机/战斗/玩家回合/出牌/默认"]
+script = ExtResource("5_5ti5d")
+to = NodePath("../../卡牌点击")
+delay_in_seconds = "0.0"
+
+[node name="卡牌点击" type="Node" parent="状态机/状态机/战斗/玩家回合/出牌"]
+script = ExtResource("4_kgcc7")
+
+[node name="状态转换" type="Node" parent="状态机/状态机/战斗/玩家回合/出牌/卡牌点击"]
+script = ExtResource("5_5ti5d")
+to = NodePath("../../卡牌拖动")
+delay_in_seconds = "0.0"
+
+[node name="卡牌拖动" type="Node" parent="状态机/状态机/战斗/玩家回合/出牌"]
+script = ExtResource("4_kgcc7")
+
+[node name="状态转换" type="Node" parent="状态机/状态机/战斗/玩家回合/出牌/卡牌拖动"]
+script = ExtResource("5_5ti5d")
+to = NodePath("../../卡牌打出")
+delay_in_seconds = "0.0"
+
+[node name="卡牌打出" type="Node" parent="状态机/状态机/战斗/玩家回合/出牌"]
+script = ExtResource("4_kgcc7")
+
+[node name="状态转换" type="Node" parent="状态机/状态机/战斗/玩家回合/出牌/卡牌打出"]
+script = ExtResource("5_5ti5d")
+to = NodePath("../../卡牌销毁")
+delay_in_seconds = "0.0"
+
+[node name="卡牌销毁" type="Node" parent="状态机/状态机/战斗/玩家回合/出牌"]
+script = ExtResource("4_kgcc7")
+
+[node name="状态转换" type="Node" parent="状态机/状态机/战斗/玩家回合/出牌/卡牌销毁"]
+script = ExtResource("5_5ti5d")
+to = NodePath("../../默认")
+event = &"继续出牌"
+delay_in_seconds = "0.0"
+
+[node name="状态转换2" type="Node" parent="状态机/状态机/战斗/玩家回合/出牌/卡牌销毁"]
+script = ExtResource("5_5ti5d")
+to = NodePath("../../../../敌人回合")
+event = &"回合结束"
+delay_in_seconds = "0.0"
+
+[node name="敌人回合" type="Node" parent="状态机/状态机/战斗"]
+script = ExtResource("4_kgcc7")
+
+[node name="状态转换" type="Node" parent="状态机/状态机/战斗/敌人回合"]
+script = ExtResource("5_5ti5d")
+to = NodePath("../../响应")
+delay_in_seconds = "0.0"
+
+[node name="响应" type="Node" parent="状态机/状态机/战斗"]
+script = ExtResource("4_kgcc7")
+
+[node name="状态转换" type="Node" parent="状态机/状态机/战斗/响应"]
+script = ExtResource("5_5ti5d")
+to = NodePath("../../结算")
+delay_in_seconds = "0.0"
+
+[node name="结算" type="Node" parent="状态机/状态机/战斗"]
+script = ExtResource("4_kgcc7")
+
+[node name="状态转换" type="Node" parent="状态机/状态机/战斗/结算"]
+script = ExtResource("5_5ti5d")
+to = NodePath("../../战斗初始化")
+event = &"继续战斗"
+delay_in_seconds = "0.0"
+
+[node name="状态转换2" type="Node" parent="状态机/状态机/战斗/结算"]
+script = ExtResource("5_5ti5d")
+to = NodePath("../../../非战斗状态")
+event = &"战斗结束"
+delay_in_seconds = "0.0"
+
+[node name="非战斗状态" type="Node" parent="状态机/状态机"]
+script = ExtResource("4_kgcc7")
+
+[node name="状态转换" type="Node" parent="状态机/状态机/非战斗状态"]
+script = ExtResource("5_5ti5d")
+to = NodePath("../../战斗")
+event = &"战斗"
+delay_in_seconds = "0.0"
+
+[connection signal="state_entered" from="状态机/状态机/初始化" to="." method="_on_初始化_state_entered"]
+[connection signal="state_entered" from="状态机/状态机/战斗" to="." method="_on_战斗_state_entered"]
+[connection signal="state_entered" from="状态机/状态机/战斗/战斗初始化" to="." method="_on_战斗初始化_state_entered"]
+[connection signal="state_entered" from="状态机/状态机/战斗/玩家回合" to="." method="_on_玩家回合_state_entered"]
+[connection signal="state_entered" from="状态机/状态机/战斗/玩家回合/抽牌" to="." method="_on_抽牌_state_entered"]
+[connection signal="state_entered" from="状态机/状态机/战斗/玩家回合/出牌" to="." method="_on_出牌_state_entered"]
+[connection signal="state_entered" from="状态机/状态机/战斗/玩家回合/出牌/默认" to="." method="_on_卡牌初始化_state_entered"]
+[connection signal="state_entered" from="状态机/状态机/战斗/玩家回合/出牌/卡牌点击" to="." method="_on_卡牌点击_state_entered"]
+[connection signal="state_entered" from="状态机/状态机/战斗/玩家回合/出牌/卡牌拖动" to="." method="_on_卡牌拖动_state_entered"]
+[connection signal="state_entered" from="状态机/状态机/战斗/玩家回合/出牌/卡牌打出" to="." method="_on_卡牌打出_state_entered"]
+[connection signal="state_entered" from="状态机/状态机/战斗/玩家回合/出牌/卡牌销毁" to="." method="_on_卡牌销毁_state_entered"]
+[connection signal="state_entered" from="状态机/状态机/战斗/敌人回合" to="." method="_on_敌人回合_state_entered"]
+[connection signal="state_entered" from="状态机/状态机/战斗/响应" to="." method="_on_响应_state_entered"]
+[connection signal="state_entered" from="状态机/状态机/战斗/结算" to="." method="_on_结算_state_entered"]
+[connection signal="state_entered" from="状态机/状态机/非战斗状态" to="." method="_on_非战斗状态_state_entered"]
