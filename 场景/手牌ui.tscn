@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://dkcnriblmun6t"]
+[gd_scene load_steps=4 format=3 uid="uid://dkcnriblmun6t"]
 
 [ext_resource type="Script" path="res://脚本/手牌.gd" id="1_fsrk1"]
-[ext_resource type="PackedScene" uid="uid://cvhehu3ciefxl" path="res://场景/卡牌.tscn" id="1_kqkpq"]
 [ext_resource type="Script" path="res://脚本/手牌ui.gd" id="1_xoehx"]
 [ext_resource type="PackedScene" uid="uid://dj34xrfcubn6q" path="res://场景/剩余出牌数.tscn" id="3_fkcqo"]
 
@@ -20,12 +19,6 @@ offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("1_fsrk1")
-
-[node name="卡牌" parent="手牌" instance=ExtResource("1_kqkpq")]
-layout_mode = 2
-
-[node name="卡牌2" parent="手牌" instance=ExtResource("1_kqkpq")]
-layout_mode = 2
 
 [node name="剩余出牌数" parent="." instance=ExtResource("3_fkcqo")]
 offset_left = 42.0

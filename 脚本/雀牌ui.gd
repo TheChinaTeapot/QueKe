@@ -26,6 +26,7 @@ var disabled := false
 var minimumDragTimeElapsed := false
 var played:bool
 var mouseEnter:bool = false
+var deafult:bool = false
 
 func _ready():
 	events.cardDragEnd.connect(OnCardDragEnd)
@@ -76,6 +77,8 @@ func play():
 		card.play(global.targets,chars)
 	else:
 		card.play(targets,chars)
+	StateMachine.send_event("继续出牌")
+	await $"状态机/玩家回合/卡牌默认".state_entered
 	queue_free()
 
 func _on_area_2d_area_entered(area):
@@ -110,6 +113,8 @@ func _on_mouse_exited() -> void:
 		污染效果.text = ""
 
 func _on_默认_state_entered() -> void:
+	deafult = true
+	
 	self.theme = Theme1
 	reParent.emit(self)
 	self.pivot_offset = Vector2.ZERO
@@ -117,17 +122,19 @@ func _on_默认_state_entered() -> void:
 func _on_默认_state_input(event: InputEvent) -> void:
 	if not playable or disabled:
 		return
-		
-	if event.is_action_pressed("left_mouse"):
-		self.pivot_offset = get_global_mouse_position() - global_position
-		StateMachine.send_event("点击卡牌")
+	
+	if deafult:
+		if event.is_action_pressed("left_mouse"):
+			self.pivot_offset = Vector2(48,64)
+			StateMachine.send_event("点击卡牌")
 
 func _on_卡牌点击_state_entered() -> void:
+	deafult = false
 	area_2d.monitoring = true
 	events.clickcard.emit(self)
 
 func _on_卡牌点击_state_input(event: InputEvent) -> void:
-	if mouseEnter:
+	if mouseEnter and !deafult:
 		if event is InputEventMouseMotion:
 			StateMachine.send_event("拖动卡牌")
 
@@ -150,7 +157,7 @@ func _on_卡牌拖动_state_input(event: InputEvent) -> void:
 	var cancel = event.is_action_pressed("right_mouse")
 	var confirm  = event.is_action_released("left_mouse") or event.is_action_pressed("left_mouse")
 	
-	if MouseMotion:
+	if MouseMotion and !deafult:
 		self.global_position = self.get_global_mouse_position() - pivot_offset
 	
 	if cancel:

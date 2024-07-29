@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ba0cfbtaf720f"]
+
+[ext_resource type="Script" path="res://脚本/玩家处理器.gd" id="1_42sm8"]
+
+[node name="玩家处理器" type="Node"]
+script = ExtResource("1_42sm8")
