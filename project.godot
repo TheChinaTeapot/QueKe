@@ -12,7 +12,7 @@ config_version=5
 
 config/name="六州：雀客"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://外部资源/图像/六州标志 2.0 组合 无处理.png"
 
 [rendering]
 
