@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="赋能" load_steps=2 format=3 uid="uid://ddj4o416muuvt"]
+
+[ext_resource type="Script" path="res://资源/卡牌数据/卡牌/赋能/赋能.gd" id="1_n17pm"]
+
+[resource]
+script = ExtResource("1_n17pm")
+"名称" = ""
+"限定花色" = 1
+"稀有度" = 2
+"具体赋能类型" = 2
+"触发条件" = 0
+"赋能效果" = "抽一张赋能牌，每激活一个同名能力就重复一次"

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="赋能" load_steps=2 format=3 uid="uid://33mcti7s5ahv"]
+
+[ext_resource type="Script" path="res://资源/卡牌数据/卡牌/赋能/赋能.gd" id="1_lsr3t"]
+
+[resource]
+script = ExtResource("1_lsr3t")
+"名称" = ""
+"限定花色" = 1
+"点数" = ""
+"稀有度" = 2
+"具体赋能类型" = 1
+"触发条件" = 1
+"赋能效果" = "选牌堆三张赋能牌中一张的复制加入手牌"

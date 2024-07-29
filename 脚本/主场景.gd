@@ -6,7 +6,7 @@ func _on_初始化_state_entered() -> void:
 	print("初始化")
 
 func _on_战斗_state_entered() -> void:
-	print("进入战斗")
+	self.add_child(preload("res://场景/战斗场景.tscn").instantiate())
 
 func _on_非战斗状态_state_entered() -> void:
 	print("进入非战斗状态")
@@ -46,6 +46,10 @@ func _on_卡牌打出_state_entered() -> void:
 
 func _on_卡牌销毁_state_entered() -> void:
 	print("销毁卡牌")
+
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_down"):
+		StateMachine.send_event("战斗")
 
 #进入战斗状态
 #StateMachine.send_event("战斗")

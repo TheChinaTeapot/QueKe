@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://c4ulv2hf51bbd"]
+
+[ext_resource type="Script" path="res://资源/卡牌数据/卡牌/卡牌.gd" id="1_djlyy"]
+[ext_resource type="Texture2D" uid="uid://hon6tl6rpucj" path="res://外部资源/图像/筒.png" id="2_lo8ee"]
+
+[resource]
+script = ExtResource("1_djlyy")
+name = "六饼"
+"花色" = 1
+"点数" = "6"
+"是否赋能" = false
+"是否效果" = false
+"图" = ExtResource("2_lo8ee")
+choose = false

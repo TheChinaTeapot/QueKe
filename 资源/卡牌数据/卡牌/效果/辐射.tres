@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="效果" load_steps=2 format=3 uid="uid://cq0xy40snr2tf"]
+
+[ext_resource type="Script" path="res://资源/卡牌数据/卡牌/效果/效果.gd" id="1_da1yl"]
+
+[resource]
+script = ExtResource("1_da1yl")
+"具体类型" = 1
+"污染效果" = "降低玩家胡牌的番数"

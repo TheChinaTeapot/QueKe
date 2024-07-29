@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://dqps3u14h53oi"]
+
+[ext_resource type="Script" path="res://资源/卡牌数据/卡牌/卡牌.gd" id="1_d1tvv"]
+[ext_resource type="Texture2D" uid="uid://byhsee0uxbsev" path="res://外部资源/图像/条.png" id="2_qtaxd"]
+
+[resource]
+script = ExtResource("1_d1tvv")
+name = "三条"
+"花色" = 2
+"点数" = "3"
+"是否赋能" = false
+"是否效果" = false
+"图" = ExtResource("2_qtaxd")
+choose = false

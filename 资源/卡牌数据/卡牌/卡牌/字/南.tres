@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://bocarflnyt3g2"]
+
+[ext_resource type="Script" path="res://资源/卡牌数据/卡牌/卡牌.gd" id="1_c15i0"]
+[ext_resource type="Texture2D" uid="uid://csqsrqf4xmk1q" path="res://外部资源/图像/风.png" id="2_mf38e"]
+
+[resource]
+script = ExtResource("1_c15i0")
+name = "南"
+"花色" = 3
+"点数" = "南"
+"是否赋能" = false
+"是否效果" = false
+"图" = ExtResource("2_mf38e")
+choose = false

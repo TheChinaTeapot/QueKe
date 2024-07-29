@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://b22du4snj5dnv"]
+
+[ext_resource type="Script" path="res://脚本/玩家.gd" id="1_53pyx"]
+[ext_resource type="PackedScene" uid="uid://bgm2h8aef5l8l" path="res://场景/状态ui.tscn" id="2_pr6bi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5c7hg"]
+size = Vector2(250, 300)
+
+[node name="玩家" type="Area2D" groups=["player"]]
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("1_53pyx")
+
+[node name="Sprite2D" type="TextureRect" parent="."]
+offset_right = 250.0
+offset_bottom = 300.0
+expand_mode = 1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(125, 150)
+shape = SubResource("RectangleShape2D_5c7hg")
+
+[node name="状态UI" parent="." instance=ExtResource("2_pr6bi")]
+offset_left = -64.0
+offset_top = 300.0
+offset_right = 311.0
+offset_bottom = 415.0

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://dxyx31g8dclv2"]
+
+[ext_resource type="Script" path="res://资源/卡牌数据/卡牌/卡牌.gd" id="1_kpqi0"]
+[ext_resource type="Texture2D" uid="uid://5hhuhupo627i" path="res://外部资源/图像/白.png" id="2_cuw3p"]
+
+[resource]
+script = ExtResource("1_kpqi0")
+name = "白"
+"花色" = 3
+"点数" = "白"
+"是否赋能" = false
+"是否效果" = false
+"图" = ExtResource("2_cuw3p")
+choose = false

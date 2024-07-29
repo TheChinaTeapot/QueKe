@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="效果" load_steps=2 format=3 uid="uid://ca4qpmwr06mwm"]
+
+[ext_resource type="Script" path="res://资源/卡牌数据/卡牌/效果/效果.gd" id="1_8kxhe"]
+
+[resource]
+script = ExtResource("1_8kxhe")
+"具体类型" = 0
+"污染效果" = "雀牌在被打出时对玩家资产造成损害"

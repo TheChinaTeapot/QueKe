@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="赋能" load_steps=2 format=3 uid="uid://g334giaw5cul"]
+
+[ext_resource type="Script" path="res://资源/卡牌数据/卡牌/赋能/赋能.gd" id="1_d4jlv"]
+
+[resource]
+script = ExtResource("1_d4jlv")
+"名称" = ""
+"限定花色" = 2
+"稀有度" = 2
+"具体赋能类型" = 0
+"触发条件" = 2
+"赋能效果" = "抽一对牌"

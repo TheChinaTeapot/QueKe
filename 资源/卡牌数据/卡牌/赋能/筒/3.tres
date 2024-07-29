@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="赋能" load_steps=2 format=3 uid="uid://hamk7gq7tm7y"]
+
+[ext_resource type="Script" path="res://资源/卡牌数据/卡牌/赋能/赋能.gd" id="1_jhhfk"]
+
+[resource]
+script = ExtResource("1_jhhfk")
+"名称" = ""
+"限定花色" = 1
+"点数" = ""
+"稀有度" = 2
+"具体赋能类型" = 2
+"触发条件" = 2
+"赋能效果" = "无视你下次不满足的赋能条件"

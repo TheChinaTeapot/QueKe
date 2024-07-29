@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="赋能" load_steps=2 format=3 uid="uid://swismqwoucef"]
+
+[ext_resource type="Script" path="res://资源/卡牌数据/卡牌/赋能/赋能.gd" id="1_ydg2v"]
+
+[resource]
+script = ExtResource("1_ydg2v")
+"名称" = ""
+"限定花色" = 1
+"点数" = ""
+"稀有度" = 2
+"具体赋能类型" = 0
+"触发条件" = 0
+"赋能效果" = "将一次出牌变为一组随机牌"

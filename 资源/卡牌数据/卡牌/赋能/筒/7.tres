@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="赋能" load_steps=2 format=3 uid="uid://yjrymjbcwpe4"]
+
+[ext_resource type="Script" path="res://资源/卡牌数据/卡牌/赋能/赋能.gd" id="1_152kf"]
+
+[resource]
+script = ExtResource("1_152kf")
+"名称" = ""
+"限定花色" = 1
+"点数" = ""
+"稀有度" = 2
+"具体赋能类型" = 3
+"触发条件" = 0
+"赋能效果" = "任一方回合结束时，这张牌点数+1"

@@ -1,0 +1,152 @@
+[gd_scene load_steps=9 format=3 uid="uid://cvhehu3ciefxl"]
+
+[ext_resource type="Script" path="res://脚本/雀牌ui.gd" id="2_20ijn"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="3_3hj3m"]
+[ext_resource type="Resource" uid="uid://cudg2qh2k04ew" path="res://资源/卡牌数据/卡牌/卡牌/万/七万.tres" id="3_rnhbf"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="4_uufr6"]
+[ext_resource type="Resource" uid="uid://b5l8hm4j2y53c" path="res://资源/角色数据/玩家/初始角色.tres" id="4_xskc6"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="5_frsx2"]
+[ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="6_osvxq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qou66"]
+size = Vector2(96, 128)
+
+[node name="卡牌" type="Control"]
+custom_minimum_size = Vector2(96, 128)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1056.0
+offset_bottom = -520.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(48, 64)
+script = ExtResource("2_20ijn")
+card = ExtResource("3_rnhbf")
+chars = ExtResource("4_xskc6")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+
+[node name="图片" type="TextureRect" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+mouse_filter = 2
+expand_mode = 1
+
+[node name="名称" type="Label" parent="Panel/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="赋能效果" type="Label" parent="Panel/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="污染效果" type="Label" parent="Panel/VBoxContainer"]
+visible = false
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(48, 64)
+shape = SubResource("RectangleShape2D_qou66")
+
+[node name="状态机" type="Node" parent="."]
+script = ExtResource("3_3hj3m")
+
+[node name="玩家回合" type="Node" parent="状态机"]
+script = ExtResource("4_uufr6")
+initial_state = NodePath("抽牌")
+
+[node name="抽牌" type="Node" parent="状态机/玩家回合"]
+script = ExtResource("5_frsx2")
+
+[node name="状态转换" type="Node" parent="状态机/玩家回合/抽牌"]
+script = ExtResource("6_osvxq")
+to = NodePath("../../出牌")
+delay_in_seconds = "0.0"
+
+[node name="出牌" type="Node" parent="状态机/玩家回合"]
+script = ExtResource("4_uufr6")
+initial_state = NodePath("默认")
+
+[node name="默认" type="Node" parent="状态机/玩家回合/出牌"]
+script = ExtResource("5_frsx2")
+
+[node name="状态转换" type="Node" parent="状态机/玩家回合/出牌/默认"]
+script = ExtResource("6_osvxq")
+to = NodePath("../../卡牌点击")
+event = &"点击卡牌"
+delay_in_seconds = "0.0"
+
+[node name="卡牌点击" type="Node" parent="状态机/玩家回合/出牌"]
+script = ExtResource("5_frsx2")
+
+[node name="状态转换" type="Node" parent="状态机/玩家回合/出牌/卡牌点击"]
+script = ExtResource("6_osvxq")
+to = NodePath("../../卡牌拖动")
+event = &"拖动卡牌"
+delay_in_seconds = "0.0"
+
+[node name="卡牌拖动" type="Node" parent="状态机/玩家回合/出牌"]
+script = ExtResource("5_frsx2")
+
+[node name="状态转换" type="Node" parent="状态机/玩家回合/出牌/卡牌拖动"]
+script = ExtResource("6_osvxq")
+to = NodePath("../../卡牌打出")
+event = &"打出卡牌"
+delay_in_seconds = "0.0"
+
+[node name="状态转换2" type="Node" parent="状态机/玩家回合/出牌/卡牌拖动"]
+script = ExtResource("6_osvxq")
+to = NodePath("../../默认")
+event = &"取消选择"
+delay_in_seconds = "0.0"
+
+[node name="卡牌打出" type="Node" parent="状态机/玩家回合/出牌"]
+script = ExtResource("5_frsx2")
+
+[node name="状态转换" type="Node" parent="状态机/玩家回合/出牌/卡牌打出"]
+script = ExtResource("6_osvxq")
+to = NodePath("../../默认")
+event = &"继续出牌"
+delay_in_seconds = "0.0"
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
+[connection signal="state_entered" from="状态机/玩家回合/出牌/默认" to="." method="_on_默认_state_entered"]
+[connection signal="state_input" from="状态机/玩家回合/出牌/默认" to="." method="_on_默认_state_input"]
+[connection signal="state_entered" from="状态机/玩家回合/出牌/卡牌点击" to="." method="_on_卡牌点击_state_entered"]
+[connection signal="state_input" from="状态机/玩家回合/出牌/卡牌点击" to="." method="_on_卡牌点击_state_input"]
+[connection signal="state_entered" from="状态机/玩家回合/出牌/卡牌拖动" to="." method="_on_卡牌拖动_state_entered"]
+[connection signal="state_exited" from="状态机/玩家回合/出牌/卡牌拖动" to="." method="_on_卡牌拖动_state_exited"]
+[connection signal="state_input" from="状态机/玩家回合/出牌/卡牌拖动" to="." method="_on_卡牌拖动_state_input"]
+[connection signal="state_entered" from="状态机/玩家回合/出牌/卡牌打出" to="." method="_on_卡牌打出_state_entered"]
+[connection signal="state_input" from="状态机/玩家回合/出牌/卡牌打出" to="." method="_on_卡牌打出_state_input"]

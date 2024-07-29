@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="赋能" load_steps=2 format=3 uid="uid://c53vsxnsc7w3n"]
+
+[ext_resource type="Script" path="res://资源/卡牌数据/卡牌/赋能/赋能.gd" id="1_ff25i"]
+
+[resource]
+script = ExtResource("1_ff25i")
+"名称" = ""
+"限定花色" = 2
+"稀有度" = 2
+"具体赋能类型" = 1
+"触发条件" = 2
+"赋能效果" = "获得6点流动资金，下回合再获得6点"

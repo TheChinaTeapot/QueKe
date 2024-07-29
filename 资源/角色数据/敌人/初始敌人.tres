@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Stats" load_steps=3 format=3 uid="uid://cmeun37g82wpj"]
+
+[ext_resource type="Script" path="res://资源/角色数据/统计数据.gd" id="1_o0eh5"]
+[ext_resource type="Texture2D" uid="uid://phgxebnsvwpv" path="res://外部资源/图像/箭.png" id="2_8dax6"]
+
+[resource]
+script = ExtResource("1_o0eh5")
+"刀币" = 20
+"图像" = ExtResource("2_8dax6")

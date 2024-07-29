@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://bgm2h8aef5l8l"]
+
+[ext_resource type="Theme" uid="uid://bpgwqn0l7uvq2" path="res://资源/主题/主题1.tres" id="1_h1ay0"]
+[ext_resource type="Script" path="res://脚本/状态UI.gd" id="2_njcl0"]
+
+[node name="状态UI" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_h1ay0")
+script = ExtResource("2_njcl0")
+
+[node name="刀币栏" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="刀币" type="TextureRect" parent="刀币栏"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="刀币数" type="Label" parent="刀币栏"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="流动资金栏" type="HBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="流动资金" type="TextureRect" parent="流动资金栏"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="流动资金数" type="Label" parent="流动资金栏"]
+layout_mode = 2
+size_flags_horizontal = 3

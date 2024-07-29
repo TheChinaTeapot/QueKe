@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Card" load_steps=2 format=3 uid="uid://2glufjivqvsl"]
+
+[ext_resource type="Script" path="res://资源/卡牌数据/卡牌/卡牌.gd" id="1_ba7tr"]
+
+[resource]
+script = ExtResource("1_ba7tr")
+name = "菊"
+"花色" = 4
+"点数" = "菊"
+"是否赋能" = false
+"是否效果" = false
+choose = false

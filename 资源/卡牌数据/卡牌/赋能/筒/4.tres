@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="赋能" load_steps=2 format=3 uid="uid://1ow10itwsq3m"]
+
+[ext_resource type="Script" path="res://资源/卡牌数据/卡牌/赋能/赋能.gd" id="1_07y8c"]
+
+[resource]
+script = ExtResource("1_07y8c")
+"名称" = ""
+"限定花色" = 1
+"点数" = ""
+"稀有度" = 2
+"具体赋能类型" = 1
+"触发条件" = 1
+"赋能效果" = "抽两张赋能牌"

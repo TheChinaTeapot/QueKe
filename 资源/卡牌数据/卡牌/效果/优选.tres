@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="效果" load_steps=2 format=3 uid="uid://dvqbk1b04yr8l"]
+
+[ext_resource type="Script" path="res://资源/卡牌数据/卡牌/效果/效果.gd" id="1_epl1h"]
+
+[resource]
+script = ExtResource("1_epl1h")
+"具体类型" = 2
+"污染效果" = "可以增加胡牌的番数"

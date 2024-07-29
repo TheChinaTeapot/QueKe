@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Card" load_steps=3 format=3 uid="uid://dwiq1o5w2w8fd"]
+
+[ext_resource type="Script" path="res://资源/卡牌数据/卡牌/卡牌.gd" id="1_qjw4o"]
+[ext_resource type="Texture2D" uid="uid://bqedrjth30hru" path="res://外部资源/图像/万.png" id="2_nc718"]
+
+[resource]
+script = ExtResource("1_qjw4o")
+name = "一万"
+"花色" = 0
+"点数" = "1"
+"是否赋能" = false
+"是否效果" = false
+"图" = ExtResource("2_nc718")
+choose = false

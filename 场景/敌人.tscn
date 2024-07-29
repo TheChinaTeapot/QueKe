@@ -1,0 +1,41 @@
+[gd_scene load_steps=5 format=3 uid="uid://by17jrd53lmdo"]
+
+[ext_resource type="Script" path="res://脚本/敌人.gd" id="1_tpth1"]
+[ext_resource type="PackedScene" uid="uid://bgm2h8aef5l8l" path="res://场景/状态ui.tscn" id="1_xl1n1"]
+[ext_resource type="Texture2D" uid="uid://emk8w68a32jl" path="res://外部资源/图像/th (1).png" id="2_1ley3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5c7hg"]
+size = Vector2(250, 300)
+
+[node name="敌人" type="Area2D" groups=["enemy"]]
+collision_layer = 4
+script = ExtResource("1_tpth1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(125, 149)
+shape = SubResource("RectangleShape2D_5c7hg")
+
+[node name="Sprite2D" type="TextureRect" parent="."]
+offset_right = 250.0
+offset_bottom = 300.0
+expand_mode = 1
+
+[node name="瞄准" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 75.0
+offset_top = 99.0
+offset_right = 175.0
+offset_bottom = 199.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_1ley3")
+expand_mode = 1
+
+[node name="状态UI" parent="." instance=ExtResource("1_xl1n1")]
+offset_left = -59.0
+offset_top = 300.0
+offset_right = 316.0
+offset_bottom = 415.0
