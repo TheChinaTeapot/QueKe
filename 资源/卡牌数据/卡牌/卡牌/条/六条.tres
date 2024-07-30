@@ -12,3 +12,4 @@ name = "六条"
 "是否效果" = false
 "图" = ExtResource("2_i5ohd")
 choose = false
+"编号" = 26

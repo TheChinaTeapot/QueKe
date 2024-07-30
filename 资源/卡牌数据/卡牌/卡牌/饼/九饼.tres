@@ -12,3 +12,4 @@ name = "九饼"
 "是否效果" = false
 "图" = ExtResource("2_4arel")
 choose = false
+"编号" = 19

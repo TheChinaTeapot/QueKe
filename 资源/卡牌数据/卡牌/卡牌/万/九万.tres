@@ -12,3 +12,4 @@ name = "九万"
 "是否效果" = false
 "图" = ExtResource("2_7mnup")
 choose = false
+"编号" = 9

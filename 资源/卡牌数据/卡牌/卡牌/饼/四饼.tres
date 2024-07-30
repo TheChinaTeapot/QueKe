@@ -12,3 +12,4 @@ name = "四饼"
 "是否效果" = false
 "图" = ExtResource("2_mwhf1")
 choose = false
+"编号" = 14

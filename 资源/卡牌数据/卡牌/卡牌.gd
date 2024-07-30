@@ -12,6 +12,7 @@ enum 花色类型 {万,筒,条,字,花}
 @export var 污染增效:效果
 @export var 图:Texture2D
 @export var choose:bool
+@export var 编号:int
 
 func is_single():
 	if 具体赋能 == null:
@@ -34,12 +35,12 @@ func getTargets(targets:Array[Node]):
 			return []
 
 func play(targets:Array[Node],characterStats:Character):
+	characterStats.出牌数 -= 1
 	
 	if 具体赋能 == null:
 		return
 		
 	events.cardPlayed.emit(self)
-	characterStats.出牌数 -= 1
 	
 	if is_single():
 		applyEffect(targets)

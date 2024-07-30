@@ -7,9 +7,8 @@ extends Node2D
 
 func set_character(value:Character) -> void:
 	character = value
-	battleui.char = character
+	battleui.character = character
 	
-	start_battle(character)
 
-func start_battle(stats:Character) -> void:
+func start_battle(_stats:Character) -> void:
 	playerhandler.start_battle(character)

@@ -12,3 +12,4 @@ name = "二饼"
 "是否效果" = false
 "图" = ExtResource("2_8imh2")
 choose = false
+"编号" = 12

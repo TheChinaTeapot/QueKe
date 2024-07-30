@@ -12,3 +12,4 @@ name = "三万"
 "是否效果" = false
 "图" = ExtResource("2_rdahe")
 choose = false
+"编号" = 3

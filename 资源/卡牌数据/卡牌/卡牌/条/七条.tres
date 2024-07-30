@@ -12,3 +12,4 @@ name = "七条"
 "是否效果" = false
 "图" = ExtResource("2_u0plp")
 choose = false
+"编号" = 27

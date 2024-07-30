@@ -12,3 +12,4 @@ name = "两万"
 "是否效果" = false
 "图" = ExtResource("2_ure5w")
 choose = false
+"编号" = 2

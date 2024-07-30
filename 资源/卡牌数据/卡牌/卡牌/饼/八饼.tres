@@ -12,3 +12,4 @@ name = "八饼"
 "是否效果" = false
 "图" = ExtResource("2_nmsfj")
 choose = false
+"编号" = 18

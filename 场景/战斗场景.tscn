@@ -12,7 +12,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fbu00"]
 size = Vector2(1151, 498)
 
-[node name="战斗场景" type="Node2D"]
+[node name="战斗场景" type="Node2D" groups=["fight"]]
 script = ExtResource("1_xejil")
 
 [node name="卡牌目标选择器" parent="." instance=ExtResource("1_ufcdk")]

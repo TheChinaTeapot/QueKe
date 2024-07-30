@@ -12,3 +12,4 @@ name = "五饼"
 "是否效果" = false
 "图" = ExtResource("2_xciui")
 choose = false
+"编号" = 15

@@ -12,3 +12,4 @@ name = "九条"
 "是否效果" = false
 "图" = ExtResource("2_n7kju")
 choose = false
+"编号" = 29

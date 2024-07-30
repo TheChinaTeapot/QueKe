@@ -12,3 +12,4 @@ name = "两条"
 "是否效果" = false
 "图" = ExtResource("2_wh2mg")
 choose = false
+"编号" = 22

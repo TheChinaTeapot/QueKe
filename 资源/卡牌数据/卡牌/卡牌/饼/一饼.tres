@@ -12,3 +12,4 @@ name = "一饼"
 "是否效果" = false
 "图" = ExtResource("2_xrlt7")
 choose = false
+"编号" = 11

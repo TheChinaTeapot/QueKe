@@ -12,3 +12,4 @@ name = "四条"
 "是否效果" = false
 "图" = ExtResource("2_7ehn2")
 choose = false
+"编号" = 24

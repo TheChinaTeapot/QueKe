@@ -12,3 +12,4 @@ name = "八条"
 "是否效果" = false
 "图" = ExtResource("2_1o2fx")
 choose = false
+"编号" = 28

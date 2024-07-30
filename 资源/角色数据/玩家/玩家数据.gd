@@ -8,6 +8,8 @@ var 出牌数: int :set = set_mana
 var 当前牌堆:CardPile = 初始牌组.duplicate()
 var 弃牌堆:CardPile
 var 抽牌堆:CardPile
+var 手牌堆:CardPile
+var 出牌堆:CardPile
 
 func set_mana(value:int):
 	出牌数 = value
@@ -17,7 +19,7 @@ func reset_mana():
 	self.出牌数 = 3
 
 func can_play_card():
-	return 出牌数 >= 0
+	return 出牌数 > 0
 
 func create_instance():
 	var instance:Character = self.duplicate()
@@ -27,4 +29,6 @@ func create_instance():
 	#instance.当前牌堆 = 初始牌组.duplicate()
 	instance.抽牌堆 = CardPile.new()
 	instance.弃牌堆 = CardPile.new()
+	instance.手牌堆 = CardPile.new()
+	instance.出牌堆 = CardPile.new()
 	return instance

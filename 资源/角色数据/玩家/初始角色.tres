@@ -7,7 +7,7 @@
 [resource]
 script = ExtResource("1_pfmoy")
 "初始牌组" = ExtResource("2_75pbd")
-"最大抽牌数" = 4
+"最大抽牌数" = 12
 "最大出牌数" = 4
 "刀币" = 100
 "图像" = ExtResource("3_qhnsx")

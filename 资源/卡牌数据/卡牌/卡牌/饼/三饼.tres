@@ -12,3 +12,4 @@ name = "三饼"
 "是否效果" = false
 "图" = ExtResource("2_kw422")
 choose = false
+"编号" = 13

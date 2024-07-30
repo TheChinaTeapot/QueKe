@@ -12,3 +12,4 @@ name = "一条"
 "是否效果" = false
 "图" = ExtResource("2_kc245")
 choose = false
+"编号" = 21

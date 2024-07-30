@@ -1,7 +1,7 @@
 extends HBoxContainer
 class_name Hand
 
-@export var char:Character
+@export var character:Character
 
 @onready var cardUI := preload("res://场景/卡牌.tscn")
 
@@ -17,7 +17,7 @@ func addCard(card:Card) -> void:
 	new_card_ui.reParent.connect(OnCardUIReParent)
 	new_card_ui.card = card
 	new_card_ui.reparent(self)
-	new_card_ui.chars = char
+	new_card_ui.chars = character
 
 func OnCardUIReParent(child:CardUI):
 	child.reparent(self)
@@ -26,4 +26,4 @@ func OnCardUIReParent(child:CardUI):
 
 func OnCardPlayed():
 	cardsPlayed += 1
-	
+
