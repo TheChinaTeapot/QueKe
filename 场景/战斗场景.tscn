@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://ba0cfbtaf720f" path="res://场景/玩家处理器.tscn" id="8_etreu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fbu00"]
-size = Vector2(1151, 498)
+size = Vector2(1151, 542)
 
 [node name="战斗场景" type="Node2D" groups=["fight"]]
 script = ExtResource("1_xejil")
@@ -21,7 +21,7 @@ script = ExtResource("1_xejil")
 collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(575.5, 248)
+position = Vector2(575.5, 271)
 shape = SubResource("RectangleShape2D_fbu00")
 
 [node name="玩家" parent="." instance=ExtResource("2_mlo1n")]

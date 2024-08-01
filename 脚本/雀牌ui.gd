@@ -23,9 +23,11 @@ const DRAG_MINMUM_THRESHOLD := 0.05
 
 var playable := true : set = set_playable
 var disabled := false
-var minimumDragTimeElapsed := false
+#var minimumDragTimeElapsed := false
 var played:bool
 var mouseEnter:bool = false
+var click:bool = false
+var choose:bool = false
 
 func _ready():
 	events.cardDragEnd.connect(OnCardDragEnd)
@@ -76,8 +78,6 @@ func play():
 		card.play(global.targets,chars)
 	else:
 		card.play(targets,chars)
-	StateMachine.send_event("继续出牌")
-	await $"状态机/玩家回合/卡牌默认".state_entered
 	queue_free()
 
 func _on_area_2d_area_entered(area):
@@ -115,60 +115,36 @@ func _on_默认_state_entered() -> void:
 	self.theme = Theme1
 	reParent.emit(self)
 	self.pivot_offset = Vector2.ZERO
+	click = true
+	if self.choose:
+		global_position += Vector2(0,10)
+		self.choose = false
 
 func _on_默认_state_input(event: InputEvent) -> void:
+	if !click:
+		return
 	if not playable or disabled:
 		return
-	
-	if event.is_action_pressed("left_mouse"):
+	if  event.is_action_pressed("left_mouse"):
+		click = true
 		self.pivot_offset = Vector2(48,64)
-		StateMachine.send_event("点击卡牌")
+		StateMachine.send_event("拖动卡牌")
 
-func _on_卡牌点击_state_entered() -> void:
+func _on_卡牌拖动_state_entered() -> void:
 	area_2d.monitoring = true
 	events.clickcard.emit(self)
 
-func _on_卡牌点击_state_input(event: InputEvent) -> void:
-	if mouseEnter :
-		if event is InputEventMouseMotion:
-			StateMachine.send_event("拖动卡牌")
-
-func _on_卡牌拖动_state_entered() -> void:
-	var UI := get_tree().get_first_node_in_group("UI")
-	if UI :
-		self.reparent(UI)
-	self.theme = Theme2
-	events.cardDragStart.emit(self)
-	
-	minimumDragTimeElapsed = false
-	var thresholdTimer := get_tree().create_timer(DRAG_MINMUM_THRESHOLD,false)
-	thresholdTimer.timeout.connect(func(): minimumDragTimeElapsed = true)
-
-func _on_卡牌拖动_state_exited() -> void:
-	events.cardDragEnd.emit(self)
-
 func _on_卡牌拖动_state_input(event: InputEvent) -> void:
-	var MouseMotion := event is InputEventMouseMotion
-	var cancel = event.is_action_pressed("right_mouse")
-	var confirm  = event.is_action_released("left_mouse") or event.is_action_pressed("left_mouse")
-	
-	if MouseMotion :
-		self.global_position = self.get_global_mouse_position() - pivot_offset
-	
-	if cancel:
-		StateMachine.send_event("取消选择")
-	elif confirm and minimumDragTimeElapsed:
-		get_viewport().set_input_as_handled()
-		StateMachine.send_event("打出卡牌")
-
-func _on_卡牌打出_state_entered() -> void:
-	played = false
-	if not targets.is_empty():
-		played = true
-		play()
-
-func _on_卡牌打出_state_input(_event: InputEvent) -> void:
-	if played:
+	var fight = get_tree().get_first_node_in_group("UI")
+	if !click:
 		return
-	
-	StateMachine.send_event("继续出牌")
+	var MouseMotion := event is InputEventMouseMotion
+
+	if MouseMotion and mouseEnter and click:
+		if self.choose:
+			return
+		self.global_position -= Vector2(0,10)
+		fight.count += 1
+		self.theme = Theme2
+		self.choose = true
+

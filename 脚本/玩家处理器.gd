@@ -47,13 +47,16 @@ func sort_card():
 	character.手牌堆.cards.sort_custom(sort)
 	for i in range(character.手牌堆.cards.size()):
 		var card = character.手牌堆.cards[i]
-		tween.tween_callback(hand_add_card.bind(card))
+		tween.tween_callback(hand_add_card.bind(card,i))
 		tween.tween_interval(HAND_DRAW_INTERVAL)
 		
 	tween.finished.connect(player_hand_draw)
 
-func hand_add_card(card):
+func hand_add_card(card,i):
 	hand.addCard(card)
+	var children = hand.get_children()
+	var child = children[i]
+	child.card = card
 
 func sort(a,b):
 	return a.编号 < b.编号

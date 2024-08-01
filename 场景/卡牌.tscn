@@ -71,10 +71,10 @@ size_flags_vertical = 3
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(48, 64)
+position = Vector2(48, 65)
 shape = SubResource("RectangleShape2D_qou66")
 
-[node name="状态机" type="Node" parent="."]
+[node name="状态机" type="Node" parent="." groups=["card_state"]]
 script = ExtResource("3_3hj3m")
 
 [node name="玩家回合" type="Node" parent="状态机"]
@@ -86,15 +86,6 @@ script = ExtResource("5_frsx2")
 
 [node name="状态转换" type="Node" parent="状态机/玩家回合/卡牌默认"]
 script = ExtResource("6_osvxq")
-to = NodePath("../../卡牌点击")
-event = &"点击卡牌"
-delay_in_seconds = "0.0"
-
-[node name="卡牌点击" type="Node" parent="状态机/玩家回合"]
-script = ExtResource("5_frsx2")
-
-[node name="状态转换" type="Node" parent="状态机/玩家回合/卡牌点击"]
-script = ExtResource("6_osvxq")
 to = NodePath("../../卡牌拖动")
 event = &"拖动卡牌"
 delay_in_seconds = "0.0"
@@ -102,25 +93,10 @@ delay_in_seconds = "0.0"
 [node name="卡牌拖动" type="Node" parent="状态机/玩家回合"]
 script = ExtResource("5_frsx2")
 
-[node name="状态转换" type="Node" parent="状态机/玩家回合/卡牌拖动"]
-script = ExtResource("6_osvxq")
-to = NodePath("../../卡牌打出")
-event = &"打出卡牌"
-delay_in_seconds = "0.0"
-
 [node name="状态转换2" type="Node" parent="状态机/玩家回合/卡牌拖动"]
 script = ExtResource("6_osvxq")
 to = NodePath("../../卡牌默认")
 event = &"取消选择"
-delay_in_seconds = "0.0"
-
-[node name="卡牌打出" type="Node" parent="状态机/玩家回合"]
-script = ExtResource("5_frsx2")
-
-[node name="状态转换" type="Node" parent="状态机/玩家回合/卡牌打出"]
-script = ExtResource("6_osvxq")
-to = NodePath("../../卡牌默认")
-event = &"继续出牌"
 delay_in_seconds = "0.0"
 
 [connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
@@ -129,10 +105,5 @@ delay_in_seconds = "0.0"
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
 [connection signal="state_entered" from="状态机/玩家回合/卡牌默认" to="." method="_on_默认_state_entered"]
 [connection signal="state_input" from="状态机/玩家回合/卡牌默认" to="." method="_on_默认_state_input"]
-[connection signal="state_entered" from="状态机/玩家回合/卡牌点击" to="." method="_on_卡牌点击_state_entered"]
-[connection signal="state_input" from="状态机/玩家回合/卡牌点击" to="." method="_on_卡牌点击_state_input"]
 [connection signal="state_entered" from="状态机/玩家回合/卡牌拖动" to="." method="_on_卡牌拖动_state_entered"]
-[connection signal="state_exited" from="状态机/玩家回合/卡牌拖动" to="." method="_on_卡牌拖动_state_exited"]
 [connection signal="state_input" from="状态机/玩家回合/卡牌拖动" to="." method="_on_卡牌拖动_state_input"]
-[connection signal="state_entered" from="状态机/玩家回合/卡牌打出" to="." method="_on_卡牌打出_state_entered"]
-[connection signal="state_input" from="状态机/玩家回合/卡牌打出" to="." method="_on_卡牌打出_state_input"]

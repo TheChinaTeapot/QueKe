@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://dkcnriblmun6t"]
+[gd_scene load_steps=5 format=3 uid="uid://dkcnriblmun6t"]
 
 [ext_resource type="Script" path="res://脚本/手牌.gd" id="1_fsrk1"]
 [ext_resource type="Script" path="res://脚本/手牌ui.gd" id="1_xoehx"]
 [ext_resource type="PackedScene" uid="uid://dj34xrfcubn6q" path="res://场景/剩余出牌数.tscn" id="3_fkcqo"]
+[ext_resource type="Theme" uid="uid://bpgwqn0l7uvq2" path="res://资源/主题/主题1.tres" id="4_fg06u"]
 
 [node name="战斗ui" type="CanvasLayer" groups=["UI"]]
 script = ExtResource("1_xoehx")
@@ -25,3 +26,44 @@ offset_left = 42.0
 offset_top = -224.0
 offset_right = 122.0
 offset_bottom = -144.0
+
+[node name="打出牌" type="Button" parent="."]
+offset_left = 1024.0
+offset_top = 397.0
+offset_right = 1142.0
+offset_bottom = 446.0
+theme = ExtResource("4_fg06u")
+
+[node name="Label" type="Label" parent="打出牌"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_fg06u")
+text = "打出牌"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="重新选牌" type="Button" parent="."]
+offset_left = 900.0
+offset_top = 397.0
+offset_right = 1018.0
+offset_bottom = 446.0
+theme = ExtResource("4_fg06u")
+
+[node name="Label" type="Label" parent="重新选牌"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_fg06u")
+text = "重新选牌"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="pressed" from="打出牌" to="." method="_on_打出牌_pressed"]
+[connection signal="pressed" from="重新选牌" to="." method="_on_重新选牌_pressed"]
