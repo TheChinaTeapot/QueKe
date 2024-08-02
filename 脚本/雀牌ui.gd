@@ -14,7 +14,7 @@ const Theme2 = preload("res://资源/主题/主题2.tres")
 const DRAG_MINMUM_THRESHOLD := 0.05
 
 @export var card : Card : set = _set_card
-@export var chars:Character : set = set_character
+@export var characters:Character : set = set_character
 
 @onready var area_2d = $Area2D
 @onready var originalIndex := self.get_index()
@@ -23,10 +23,8 @@ const DRAG_MINMUM_THRESHOLD := 0.05
 
 var playable := true : set = set_playable
 var disabled := false
-#var minimumDragTimeElapsed := false
 var played:bool
 var mouseEnter:bool = false
-var click:bool = false
 var choose:bool = false
 
 func _ready():
@@ -54,12 +52,12 @@ func set_playable(value:bool):
 		panel.modulate = Color8(255,255,255,255)
 
 func set_character(value:Character):
-	chars = value
-	chars.statsChanged.connect(on_character_stats_changed)
+	characters = value
+	characters.statsChanged.connect(on_character_stats_changed)
 
 func OnCardDragEnd(_usedCard:CardUI):
 	disabled = false
-	self.playable = chars.can_play_card()
+	self.playable = characters.can_play_card()
 	
 func OnCardDragStart(usedCard:CardUI):
 	if usedCard == self:
@@ -68,16 +66,16 @@ func OnCardDragStart(usedCard:CardUI):
 	disabled = true
 
 func on_character_stats_changed():
-	self.playable = chars.can_play_card()
+	self.playable = characters.can_play_card()
 
 
 func play():
 	if not card:
 		return
 	if card.具体赋能!= null and card.具体赋能.目标 == card.具体赋能.目标对象.单一敌人:
-		card.play(global.targets,chars)
+		card.play(global.targets,characters)
 	else:
-		card.play(targets,chars)
+		card.play(targets,characters)
 	queue_free()
 
 func _on_area_2d_area_entered(area):
@@ -115,36 +113,26 @@ func _on_默认_state_entered() -> void:
 	self.theme = Theme1
 	reParent.emit(self)
 	self.pivot_offset = Vector2.ZERO
-	click = true
 	if self.choose:
 		global_position += Vector2(0,10)
-		self.choose = false
+	choose = false
 
 func _on_默认_state_input(event: InputEvent) -> void:
-	if !click:
-		return
+
 	if not playable or disabled:
 		return
 	if  event.is_action_pressed("left_mouse"):
-		click = true
 		self.pivot_offset = Vector2(48,64)
 		StateMachine.send_event("拖动卡牌")
 
-func _on_卡牌拖动_state_entered() -> void:
-	area_2d.monitoring = true
-	events.clickcard.emit(self)
 
 func _on_卡牌拖动_state_input(event: InputEvent) -> void:
 	var fight = get_tree().get_first_node_in_group("UI")
-	if !click:
-		return
-	var MouseMotion := event is InputEventMouseMotion
-
-	if MouseMotion and mouseEnter and click:
+	if event.is_action_pressed("left_mouse") and mouseEnter :
 		if self.choose:
 			return
 		self.global_position -= Vector2(0,10)
-		fight.count += 1
 		self.theme = Theme2
 		self.choose = true
+		fight.count += 1
 

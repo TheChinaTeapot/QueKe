@@ -17,7 +17,7 @@ func addCard(card:Card) -> void:
 	new_card_ui.reParent.connect(OnCardUIReParent)
 	new_card_ui.card = card
 	new_card_ui.reparent(self)
-	new_card_ui.chars = character
+	new_card_ui.characters = character
 
 func OnCardUIReParent(child:CardUI):
 	child.reparent(self)

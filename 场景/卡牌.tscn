@@ -105,5 +105,4 @@ delay_in_seconds = "0.0"
 [connection signal="area_exited" from="Area2D" to="." method="_on_area_2d_area_exited"]
 [connection signal="state_entered" from="状态机/玩家回合/卡牌默认" to="." method="_on_默认_state_entered"]
 [connection signal="state_input" from="状态机/玩家回合/卡牌默认" to="." method="_on_默认_state_input"]
-[connection signal="state_entered" from="状态机/玩家回合/卡牌拖动" to="." method="_on_卡牌拖动_state_entered"]
 [connection signal="state_input" from="状态机/玩家回合/卡牌拖动" to="." method="_on_卡牌拖动_state_input"]
