@@ -2,14 +2,14 @@
 
 [ext_resource type="Script" path="res://脚本/主场景.gd" id="1_qdepg"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/state_chart.gd" id="2_bum2j"]
-[ext_resource type="Resource" uid="uid://b5l8hm4j2y53c" path="res://资源/角色数据/玩家/初始角色.tres" id="2_ui80u"]
+[ext_resource type="Resource" uid="uid://d0vxawi7hukxd" path="res://资源/角色数据/玩家/测试角色.tres" id="2_r1oce"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/compound_state.gd" id="3_ugdm6"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/atomic_state.gd" id="4_kgcc7"]
 [ext_resource type="Script" path="res://addons/godot_state_charts/transition.gd" id="5_5ti5d"]
 
 [node name="主场景" type="Node"]
 script = ExtResource("1_qdepg")
-character = ExtResource("2_ui80u")
+character = ExtResource("2_r1oce")
 
 [node name="状态机" type="Node" parent="." groups=["state"]]
 script = ExtResource("2_bum2j")

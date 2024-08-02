@@ -65,5 +65,26 @@ text = "重新选牌"
 horizontal_alignment = 1
 vertical_alignment = 1
 
+[node name="回合结束" type="Button" parent="."]
+offset_left = 776.0
+offset_top = 397.0
+offset_right = 894.0
+offset_bottom = 446.0
+theme = ExtResource("4_fg06u")
+disabled = true
+
+[node name="Label" type="Label" parent="回合结束"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_fg06u")
+text = "回合结束"
+horizontal_alignment = 1
+vertical_alignment = 1
+
 [connection signal="pressed" from="打出牌" to="." method="_on_打出牌_pressed"]
 [connection signal="pressed" from="重新选牌" to="." method="_on_重新选牌_pressed"]
+[connection signal="pressed" from="回合结束" to="." method="_on_回合结束_pressed"]

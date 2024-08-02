@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Character" load_steps=4 format=3 uid="uid://d0vxawi7hukxd"]
+
+[ext_resource type="Script" path="res://资源/角色数据/玩家/玩家数据.gd" id="1_erggo"]
+[ext_resource type="Resource" uid="uid://7nx72jae5jmd" path="res://资源/卡牌数据/牌堆/测试牌组.tres" id="2_p70yk"]
+[ext_resource type="Texture2D" uid="uid://c41s0revmu4fv" path="res://外部资源/图像/六州标志 2.0 组合 无处理.png" id="3_op3xo"]
+
+[resource]
+script = ExtResource("1_erggo")
+"初始牌组" = ExtResource("2_p70yk")
+"最大抽牌数" = 12
+"最大出牌数" = 4
+"刀币" = 0
+"图像" = ExtResource("3_op3xo")

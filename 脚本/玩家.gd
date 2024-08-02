@@ -6,7 +6,7 @@ class_name Player
 @onready var 状态ui = $"状态UI" as StatsUI
 
 func set_character_stats(value:Character):
-	stats = value.create_instance()
+	stats = value
 	
 	if not stats.statsChanged.is_connected(UpdateStats):
 		stats.statsChanged.connect(UpdateStats)

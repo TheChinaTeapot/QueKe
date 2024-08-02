@@ -73,9 +73,9 @@ func play():
 	if not card:
 		return
 	if card.具体赋能!= null and card.具体赋能.目标 == card.具体赋能.目标对象.单一敌人:
-		card.play(global.targets,characters)
+		card.play(global.targets)
 	else:
-		card.play(targets,characters)
+		card.play(targets)
 	queue_free()
 
 func _on_area_2d_area_entered(area):
@@ -124,7 +124,6 @@ func _on_默认_state_input(event: InputEvent) -> void:
 	if  event.is_action_pressed("left_mouse"):
 		self.pivot_offset = Vector2(48,64)
 		StateMachine.send_event("拖动卡牌")
-
 
 func _on_卡牌拖动_state_input(event: InputEvent) -> void:
 	var fight = get_tree().get_first_node_in_group("UI")

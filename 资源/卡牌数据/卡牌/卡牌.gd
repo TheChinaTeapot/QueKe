@@ -34,13 +34,11 @@ func getTargets(targets:Array[Node]):
 		_:
 			return []
 
-func play(targets:Array[Node],characterStats:Character):
-	characterStats.出牌数 -= 1
+func play(targets:Array[Node]):
+	events.cardPlayed.emit(self)
 	
 	if 具体赋能 == null:
 		return
-		
-	events.cardPlayed.emit(self)
 	
 	if is_single():
 		applyEffect(targets)
