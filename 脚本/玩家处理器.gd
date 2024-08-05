@@ -4,6 +4,9 @@ class_name PlayerHandler
 const HAND_DRAW_INTERVAL := 0.25
 
 @export var hand:Hand
+@export var 雀头:VBoxContainer
+
+@onready var cardUI := preload("res://场景/卡牌.tscn")
 
 var character:Character
 
@@ -15,6 +18,7 @@ func start_battle(value:Character) -> void:
 	character.抽牌堆 = character.当前牌堆.duplicate(true)
 	character.抽牌堆.shuffle()
 	character.弃牌堆 = CardPile.new()
+	head()
 
 func start_trun() -> void:
 	character.流动资金 = 0
@@ -24,6 +28,8 @@ func start_trun() -> void:
 func draw_card() -> void:
 	reshuffle_deck_from_discard()
 	var card = character.抽牌堆.drawCard()
+	if card == null:
+		return
 	character.手牌堆.cards.append(card)
 	reshuffle_deck_from_discard()
 
@@ -34,6 +40,17 @@ func draw_cards(amount:int) -> void:
 	
 	sort_card()
 
+func head():
+	var card = character.抽牌堆.head()
+	for i in range(2):
+		var new_card_ui := cardUI.instantiate()
+		new_card_ui.card = card
+		new_card_ui.characters = character
+		add_child(new_card_ui)
+		new_card_ui.reparent(雀头)
+		new_card_ui.disabled = true
+		new_card_ui.played = true
+	
 func player_hand_draw() ->void:
 	hand.sort_card()
 	events.playerHandDraw.emit()
@@ -52,7 +69,7 @@ func sort_card():
 			o.queue_free()
 		tween.tween_callback(hand_add_card.bind(card,i))
 		tween.tween_interval(HAND_DRAW_INTERVAL)
-	
+	#
 	tween.finished.connect(player_hand_draw)
 
 func reshuffle_deck_from_discard() -> void:

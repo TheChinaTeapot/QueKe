@@ -38,7 +38,8 @@ stats = ExtResource("5_5vqqm")
 
 [node name="手牌ui" parent="." instance=ExtResource("1_b8q2a")]
 
-[node name="玩家处理器" parent="." node_paths=PackedStringArray("hand") instance=ExtResource("8_etreu")]
+[node name="玩家处理器" parent="." node_paths=PackedStringArray("hand", "雀头") instance=ExtResource("8_etreu")]
 hand = NodePath("../手牌ui/手牌")
+"雀头" = NodePath("../手牌ui/出牌区背景/出牌区/雀头")
 
 [editable path="手牌ui"]

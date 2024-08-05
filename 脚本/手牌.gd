@@ -7,19 +7,12 @@ class_name Hand
 
 var cardsPlayed := 0
 
-func _ready():
-	events.cardPlayed.connect(OnCardPlayed)
-	
-
 func addCard(card:Card) -> void:
 	var new_card_ui := cardUI.instantiate()
 	add_child(new_card_ui)
 	new_card_ui.card = card
 	new_card_ui.reparent(self)
 	new_card_ui.characters = character
-
-func OnCardPlayed():
-	cardsPlayed += 1
 
 func sort_card():
 	var children = get_children()

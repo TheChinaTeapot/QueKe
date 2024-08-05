@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bgm2h8aef5l8l" path="res://场景/状态ui.tscn" id="2_pr6bi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5c7hg"]
-size = Vector2(189, 221)
+size = Vector2(128, 151)
 
 [node name="玩家" type="Area2D" groups=["player"]]
 collision_layer = 0
@@ -12,16 +12,16 @@ collision_mask = 0
 script = ExtResource("1_53pyx")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(94.5, 110.5)
+position = Vector2(64, 75.5)
 shape = SubResource("RectangleShape2D_5c7hg")
 
 [node name="Sprite2D" type="TextureRect" parent="."]
-offset_right = 190.0
-offset_bottom = 220.0
+offset_right = 127.0
+offset_bottom = 149.0
 expand_mode = 1
 
 [node name="状态UI" parent="." instance=ExtResource("2_pr6bi")]
-offset_left = -2.0
-offset_top = 223.0
-offset_right = 190.0
-offset_bottom = 285.0
+offset_left = 2.0
+offset_top = 149.0
+offset_right = 131.0
+offset_bottom = 190.0

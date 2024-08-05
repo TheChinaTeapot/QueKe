@@ -13,6 +13,16 @@ func drawCard():
 	SizeChanged.emit(cards.size())
 	return card
 
+func head():
+	var num = randi_range(1,49)
+	while num % 10 == 0:
+		num = randi_range(1,49)
+	for card in cards:
+		if card.编号 == num:
+			cards.erase(card)
+			cards.erase(card)
+			return card
+
 func addCard(card:Card):
 	cards.append(card)
 	SizeChanged.emit(cards.size())

@@ -20,7 +20,7 @@ const DRAG_MINMUM_THRESHOLD := 0.05
 
 var playable := true : set = set_playable
 var disabled := false
-var played:bool
+var played:bool = false
 var mouseEnter:bool = false
 var choose:bool = false
 
@@ -31,7 +31,8 @@ func _ready():
 func _set_card(value:Card):
 	if not is_node_ready():
 		await ready
-	
+	if value == null:
+		return
 	card = value
 	图片.texture = card.图
 	名称.text = card.点数
@@ -42,6 +43,8 @@ func _set_card(value:Card):
 		赋能效果.text = card.具体赋能.赋能效果
 		
 func set_playable(value:bool):
+	if not is_node_ready():
+		await ready
 	playable = value
 	if not playable:
 		panel.modulate = Color8(200,200,200,255)
@@ -53,10 +56,15 @@ func set_character(value:Character):
 	characters.statsChanged.connect(on_character_stats_changed)
 
 func OnCardDragEnd(_usedCard:CardUI):
+	if played :
+		return
 	disabled = false
 	self.playable = characters.can_play_card()
 	
 func OnCardDragStart(usedCard:CardUI):
+	if played:
+		return
+		
 	if usedCard == self:
 		return
 	

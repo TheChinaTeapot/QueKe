@@ -8,6 +8,6 @@
 script = ExtResource("1_erggo")
 "初始牌组" = ExtResource("2_p70yk")
 "最大抽牌数" = 12
-"最大出牌数" = 4
-"刀币" = 0
+"最大出牌数" = 3
+"刀币" = 100
 "图像" = ExtResource("3_op3xo")

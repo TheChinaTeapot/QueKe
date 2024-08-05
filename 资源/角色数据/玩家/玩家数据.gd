@@ -1,11 +1,11 @@
 extends Stats
 class_name Character
-@export var 初始牌组: CardPile = preload("res://资源/卡牌数据/牌堆/初始牌组.tres")
+@export var 初始牌组: CardPile
 @export var 最大抽牌数:int = 12
-@export var 最大出牌数:int = 999
+@export var 最大出牌数:int = 3
 
 var 出牌数: int :set = set_mana
-var 当前牌堆:CardPile = 初始牌组.duplicate()
+var 当前牌堆:CardPile 
 var 弃牌堆:CardPile
 var 抽牌堆:CardPile
 var 手牌堆:CardPile
@@ -33,4 +33,5 @@ func create_instance():
 	instance.弃牌堆 = CardPile.new()
 	instance.手牌堆 = CardPile.new()
 	instance.出牌堆 = CardPile.new()
+	instance.当前牌堆 = instance.初始牌组.duplicate()
 	return instance
