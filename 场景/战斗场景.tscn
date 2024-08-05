@@ -25,15 +25,15 @@ position = Vector2(575.5, 271)
 shape = SubResource("RectangleShape2D_fbu00")
 
 [node name="玩家" parent="." instance=ExtResource("2_mlo1n")]
-position = Vector2(108, 99)
+position = Vector2(88, 0)
 stats = ExtResource("3_yuqmt")
 
 [node name="敌人" parent="." instance=ExtResource("3_6vh0o")]
-position = Vector2(546, 101)
+position = Vector2(546, 0)
 stats = ExtResource("5_5vqqm")
 
 [node name="敌人2" parent="." instance=ExtResource("3_6vh0o")]
-position = Vector2(878, 99)
+position = Vector2(878, 0)
 stats = ExtResource("5_5vqqm")
 
 [node name="手牌ui" parent="." instance=ExtResource("1_b8q2a")]

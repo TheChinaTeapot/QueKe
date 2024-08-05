@@ -1,8 +1,6 @@
 extends Control
 class_name CardUI
 
-signal reParent(CardUI)
-
 @onready var panel: Panel = $Panel
 @onready var 图片: TextureRect = $"Panel/VBoxContainer/HBoxContainer/图片"
 @onready var 名称: Label = $"Panel/VBoxContainer/HBoxContainer/名称"
@@ -17,7 +15,6 @@ const DRAG_MINMUM_THRESHOLD := 0.05
 @export var characters:Character : set = set_character
 
 @onready var area_2d = $Area2D
-@onready var originalIndex := self.get_index()
 @onready var targets:Array[Node] = []
 @onready var StateMachine: StateChart = $"状态机"
 
@@ -111,7 +108,6 @@ func _on_mouse_exited() -> void:
 
 func _on_默认_state_entered() -> void:
 	self.theme = Theme1
-	reParent.emit(self)
 	self.pivot_offset = Vector2.ZERO
 	if self.choose:
 		global_position += Vector2(0,10)

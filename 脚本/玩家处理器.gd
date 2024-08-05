@@ -35,6 +35,7 @@ func draw_cards(amount:int) -> void:
 	sort_card()
 
 func player_hand_draw() ->void:
+	hand.sort_card()
 	events.playerHandDraw.emit()
 
 func play_card(card:Card):
@@ -43,7 +44,6 @@ func play_card(card:Card):
 func sort_card():
 	var tween := create_tween()
 	
-	#character.手牌堆.cards.sort_custom(sort)
 	
 	for i in range(character.手牌堆.cards.size()):
 		var card = character.手牌堆.cards[i]
@@ -73,9 +73,6 @@ func hand_add_card(card,i):
 	var child = children[i]
 	child.card = card
 	
-#
-#func sort(a,b):
-	#return a.编号 < b.编号
 	
 func end_turn() -> void:
 	var stateMachine = get_tree().get_first_node_in_group("state")

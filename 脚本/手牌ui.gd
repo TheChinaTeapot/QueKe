@@ -6,6 +6,7 @@ class_name BattleUI
 @onready var hand: Hand = $"手牌"
 @onready var manaui: ManaUI = $"剩余出牌数"
 @onready var button1: Button = $"打出牌"
+@onready var button2: Button = $"重新选牌"
 @onready var endbutton: Button = $"回合结束"
 
 var count :int = 0
@@ -26,7 +27,12 @@ func _physics_process(_delta: float) -> void:
 		if count >= character.最大出牌数:
 			child.playable = false
 			button1.disabled = true
-
+	if character.出牌数 <= 0:
+		button1.disabled = true
+		button2.disabled = true
+	else:
+		button1.disabled = false
+		button2.disabled = false
 func _on_打出牌_pressed() -> void:
 	for i in range(hand.get_children().size()):
 		var card = hand.get_children()[i]
@@ -34,6 +40,7 @@ func _on_打出牌_pressed() -> void:
 			if card.choose:
 				
 				card.play()
+				count = 0
 	character.playerTurnEnd()
 
 

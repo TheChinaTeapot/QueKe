@@ -14,16 +14,17 @@ func _ready():
 func addCard(card:Card) -> void:
 	var new_card_ui := cardUI.instantiate()
 	add_child(new_card_ui)
-	new_card_ui.reParent.connect(OnCardUIReParent)
 	new_card_ui.card = card
 	new_card_ui.reparent(self)
 	new_card_ui.characters = character
 
-func OnCardUIReParent(child:CardUI):
-	child.reparent(self)
-	var newIndex = clampi(child.originalIndex - cardsPlayed,0,get_child_count())
-	move_child.call_deferred(child,newIndex)
-
 func OnCardPlayed():
 	cardsPlayed += 1
 
+func sort_card():
+	var children = get_children()
+	children.sort_custom(sort)
+	for i in range(children.size()):
+		move_child(children[i], i)
+func sort(a,b):
+	return a.card.编号 < b.card.编号
