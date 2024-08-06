@@ -14,9 +14,9 @@ func drawCard():
 	return card
 
 func head():
-	var num = randi_range(1,49)
+	var num = global.instance.randi_range(1,37)
 	while num % 10 == 0:
-		num = randi_range(1,49)
+		num = global.instance.randi_range(1,37)
 	for card in cards:
 		if card.编号 == num:
 			cards.erase(card)
@@ -28,7 +28,7 @@ func addCard(card:Card):
 	SizeChanged.emit(cards.size())
 
 func shuffle():
-	cards.shuffle()
+	global.array_shuffle(cards)
 
 func clear():
 	cards.clear()

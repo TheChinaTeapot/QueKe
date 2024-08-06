@@ -23,8 +23,43 @@ script = ExtResource("4_kgcc7")
 
 [node name="状态转换" type="Node" parent="状态机/状态机/初始化"]
 script = ExtResource("5_5ti5d")
+to = NodePath("../../新游戏初始化")
+event = &"新游戏"
+delay_in_seconds = "0.0"
+
+[node name="状态转换2" type="Node" parent="状态机/状态机/初始化"]
+script = ExtResource("5_5ti5d")
+to = NodePath("../../继续游戏初始化")
+event = &"继续游戏"
+delay_in_seconds = "0.0"
+
+[node name="新游戏初始化" type="Node" parent="状态机/状态机"]
+script = ExtResource("4_kgcc7")
+
+[node name="状态转换" type="Node" parent="状态机/状态机/新游戏初始化"]
+script = ExtResource("5_5ti5d")
 to = NodePath("../../战斗")
 event = &"战斗"
+delay_in_seconds = "0.0"
+
+[node name="状态转换2" type="Node" parent="状态机/状态机/新游戏初始化"]
+script = ExtResource("5_5ti5d")
+to = NodePath("../../非战斗状态")
+delay_in_seconds = "0.0"
+
+[node name="继续游戏初始化" type="Node" parent="状态机/状态机"]
+script = ExtResource("4_kgcc7")
+
+[node name="状态转换" type="Node" parent="状态机/状态机/继续游戏初始化"]
+script = ExtResource("5_5ti5d")
+to = NodePath("../../战斗")
+event = &"战斗"
+delay_in_seconds = "0.0"
+
+[node name="状态转换2" type="Node" parent="状态机/状态机/继续游戏初始化"]
+script = ExtResource("5_5ti5d")
+to = NodePath("../../非战斗状态")
+event = &"非战斗"
 delay_in_seconds = "0.0"
 
 [node name="战斗" type="Node" parent="状态机/状态机"]
@@ -88,7 +123,23 @@ to = NodePath("../../战斗")
 event = &"战斗"
 delay_in_seconds = "0.0"
 
+[node name="继续游戏" type="Button" parent="."]
+offset_left = 115.0
+offset_top = 266.0
+offset_right = 270.0
+offset_bottom = 340.0
+text = "继续游戏"
+
+[node name="新游戏" type="Button" parent="."]
+offset_left = 115.0
+offset_top = 373.0
+offset_right = 272.0
+offset_bottom = 449.0
+text = "新游戏"
+
 [connection signal="state_entered" from="状态机/状态机/初始化" to="." method="_on_初始化_state_entered"]
+[connection signal="state_entered" from="状态机/状态机/新游戏初始化" to="." method="_on_新游戏初始化_state_entered"]
+[connection signal="state_entered" from="状态机/状态机/继续游戏初始化" to="." method="_on_继续游戏初始化_state_entered"]
 [connection signal="state_entered" from="状态机/状态机/战斗" to="." method="_on_战斗_state_entered"]
 [connection signal="state_entered" from="状态机/状态机/战斗/战斗初始化" to="." method="_on_战斗初始化_state_entered"]
 [connection signal="state_entered" from="状态机/状态机/战斗/玩家回合" to="." method="_on_玩家回合_state_entered"]
@@ -96,3 +147,5 @@ delay_in_seconds = "0.0"
 [connection signal="state_entered" from="状态机/状态机/战斗/响应" to="." method="_on_响应_state_entered"]
 [connection signal="state_entered" from="状态机/状态机/战斗/结算" to="." method="_on_结算_state_entered"]
 [connection signal="state_entered" from="状态机/状态机/非战斗状态" to="." method="_on_非战斗状态_state_entered"]
+[connection signal="pressed" from="继续游戏" to="." method="_on_继续游戏_pressed"]
+[connection signal="pressed" from="新游戏" to="." method="_on_新游戏_pressed"]

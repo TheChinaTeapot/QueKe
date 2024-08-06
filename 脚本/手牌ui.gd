@@ -71,7 +71,6 @@ func _on_打出牌_pressed() -> void:
 						return
 					var card = array1[j]
 					character.弃牌堆.cards.append(card)
-					print(character.弃牌堆.cards.size())
 				array1.clear()
 					
 			for i in range(PlayedCards.size()):
@@ -90,7 +89,6 @@ func _on_打出牌_pressed() -> void:
 					if card == null:
 						break
 					character.弃牌堆.cards.append(card)
-					print(character.弃牌堆.cards.size())
 				array2.clear()
 					
 			for i in range(PlayedCards.size()):
@@ -109,7 +107,6 @@ func _on_打出牌_pressed() -> void:
 					if card == null:
 						break
 					character.弃牌堆.cards.append(card)
-					print(character.弃牌堆.cards.size())
 				array3.clear()
 					
 			for i in range(PlayedCards.size()):
@@ -126,7 +123,6 @@ func _on_打出牌_pressed() -> void:
 				for j in range(array4.size()):
 					var card = array4[j]
 					character.弃牌堆.cards.append(card)
-					print(character.弃牌堆.cards.size())
 				array4.clear()
 				
 			for i in range(PlayedCards.size()):
