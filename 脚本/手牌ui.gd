@@ -2,6 +2,7 @@ extends CanvasLayer
 class_name BattleUI
 
 @export var character:Character :set = set_char
+@export var 胡牌:胡牌检测
 
 @onready var hand: Hand = $"手牌"
 @onready var manaui: ManaUI = $"剩余出牌数"
@@ -12,6 +13,7 @@ class_name BattleUI
 @onready var _2: HBoxContainer = $"出牌区背景/出牌区/出牌区/出牌区2"
 @onready var _3: HBoxContainer = $"出牌区背景/出牌区/出牌区/出牌区3"
 @onready var _4: HBoxContainer = $"出牌区背景/出牌区/出牌区/出牌区4"
+@onready var __: VBoxContainer = $"出牌区背景/出牌区/雀头"
 
 var count :int = 0
 var num : int = 0
@@ -21,6 +23,7 @@ var array1:Array
 var array2:Array
 var array3:Array
 var array4:Array
+
 
 func _ready() -> void:
 	events.playerHandDraw.connect(on_player_hand_draw)
@@ -147,4 +150,29 @@ func _on_重新选牌_pressed() -> void:
 
 func _on_回合结束_pressed() -> void:
 	endbutton.disabled = true
+	var 出牌1 = []
+	var 出牌2 = []
+	var 出牌3 = []
+	var 出牌4 = []
+	var 雀头 = []
+	for i1 in _1.get_children():
+		出牌1.append(i1.card as Card)
+	for i2 in _2.get_children():
+		出牌2.append(i2.card as Card)
+	for i3 in _3.get_children():
+		出牌3.append(i3.card as Card)
+	for i4 in _4.get_children():
+		出牌4.append(i4.card as Card)
+	for i in __.get_children():
+		雀头.append(i.card as Card)
+	
+	var 胡牌2 = 胡牌.duplicate()
+	var damage = 胡牌2.是否胡牌(出牌1,出牌2,出牌3,出牌4,雀头)
+	print(damage)
+	if global.chooseEnemy.size()>0:
+		var enemy = global.chooseEnemy[0]
+		if enemy == null:
+			return
+		enemy.takeDamage(damage)
+		print(enemy.stats.刀币)
 	events.playerTurnEnd.emit()

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="胡牌检测" load_steps=3 format=3 uid="uid://cid82wm0r4v2s"]
+
+[ext_resource type="Script" path="res://资源/胡牌/胡牌检测.gd" id="1_nfghx"]
+[ext_resource type="Resource" uid="uid://ctso2ajx5qkpx" path="res://资源/胡牌/胡牌条件/番数1/门清.tres" id="2_qb6t4"]
+
+[resource]
+script = ExtResource("1_nfghx")
+"胡牌" = Array[Resource("res://资源/胡牌/胡牌条件/胡牌条件.gd")]([ExtResource("2_qb6t4")])

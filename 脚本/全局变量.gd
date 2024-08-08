@@ -1,6 +1,7 @@
 extends Node
 
 var targets:Array[Node] = []
+var chooseEnemy:Array = []
 
 var instance:RandomNumberGenerator
 

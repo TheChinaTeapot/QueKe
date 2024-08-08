@@ -43,5 +43,7 @@ func takeDamage(damage:int):
 func OnTargetsChanged():
 	if global.targets.has(self):
 		瞄准.visible = true
+		global.chooseEnemy.append(self)
 	else:
 		瞄准.visible = false
+		global.chooseEnemy.erase(self)

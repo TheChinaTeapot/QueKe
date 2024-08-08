@@ -1,7 +1,7 @@
 extends Resource
 class_name SaveGame
 
-@export var seed:int
+@export var seeds:int
 @export var seed_state:int
 @export var character:Character
 @export var 当前牌堆:CardPile

@@ -9,7 +9,7 @@ var first = false
 var save_data : SaveGame
 
 func save_run() -> void:
-	save_data.seed = global.instance.seed
+	save_data.seeds = global.instance.seed
 	save_data.seed_state = global.instance.state
 	save_data.character = character
 	save_data.当前牌堆 = character.当前牌堆
@@ -18,7 +18,7 @@ func save_run() -> void:
 func load_run() -> void:
 	save_data = SaveGame.load_data()
 	assert(save_data,"Couldn't load last save")
-	global.set_from_save(save_data.seed,save_data.seed_state)
+	global.set_from_save(save_data.seeds,save_data.seed_state)
 	character = save_data.character
 	character.当前牌堆 = save_data.当前牌堆
 	

@@ -1,0 +1,8 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://ctso2ajx5qkpx"]
+
+[ext_resource type="Script" path="res://资源/胡牌/胡牌条件/番数1/门清.gd" id="1_b57ex"]
+
+[resource]
+script = ExtResource("1_b57ex")
+name = "门清"
+"番" = 1

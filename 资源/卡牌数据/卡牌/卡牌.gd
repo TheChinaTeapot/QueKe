@@ -13,6 +13,7 @@ enum 花色类型 {万,筒,条,字,花}
 @export var 图:Texture2D
 @export var choose:bool
 @export var 编号:int
+@export var 对手牌:bool
 
 func is_single():
 	if 具体赋能 == null:
