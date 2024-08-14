@@ -14,6 +14,9 @@ var 出牌堆:CardPile
 func set_mana(value:int):
 	出牌数 = value
 	statsChanged.emit()
+	
+func set_max(value:int):
+	self.最大出牌数 = value
 
 func reset_mana():
 	self.出牌数 = 1

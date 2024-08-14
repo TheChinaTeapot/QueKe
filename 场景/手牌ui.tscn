@@ -1,10 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://dkcnriblmun6t"]
+[gd_scene load_steps=7 format=3 uid="uid://dkcnriblmun6t"]
 
 [ext_resource type="Script" path="res://脚本/手牌.gd" id="1_fsrk1"]
 [ext_resource type="Script" path="res://脚本/手牌ui.gd" id="1_xoehx"]
 [ext_resource type="Resource" uid="uid://cid82wm0r4v2s" path="res://资源/胡牌/胡牌检测.tres" id="2_7ld6m"]
 [ext_resource type="PackedScene" uid="uid://dj34xrfcubn6q" path="res://场景/剩余出牌数.tscn" id="3_fkcqo"]
 [ext_resource type="Theme" uid="uid://bpgwqn0l7uvq2" path="res://资源/主题/主题1.tres" id="4_fg06u"]
+
+[sub_resource type="ButtonGroup" id="ButtonGroup_en0gt"]
 
 [node name="战斗ui" type="CanvasLayer" groups=["UI"]]
 script = ExtResource("1_xoehx")
@@ -47,6 +49,8 @@ offset_left = 800.0
 offset_top = 520.0
 offset_right = 918.0
 offset_bottom = 569.0
+toggle_mode = true
+button_group = SubResource("ButtonGroup_en0gt")
 
 [node name="Label" type="Label" parent="Control/打出牌"]
 layout_mode = 1
@@ -66,6 +70,8 @@ offset_left = 676.0
 offset_top = 520.0
 offset_right = 794.0
 offset_bottom = 569.0
+toggle_mode = true
+button_group = SubResource("ButtonGroup_en0gt")
 
 [node name="Label" type="Label" parent="Control/重新选牌"]
 layout_mode = 1
