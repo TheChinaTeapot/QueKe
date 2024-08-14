@@ -23,19 +23,34 @@ func 是否胡牌(牌组1:Array,牌组2:Array,牌组3:Array,牌组4:Array,雀头
 	return damage
 
 func 计算伤害(当前牌组:Array):
-	var 条件 = HU.duplicate()
-	var 顺子 = 条件.顺子(当前牌组)
-	var 对子 = 条件.对子(当前牌组)
-	var 刻子 = 条件.刻子(当前牌组)
-	var 杠子 = 条件.杠子(当前牌组)
-	if 杠子:
+	var 顺子吗 = 顺子(当前牌组)
+	var 对子吗 = 对子(当前牌组)
+	var 刻子吗 = 刻子(当前牌组)
+	var 杠子吗 = 杠子(当前牌组)
+	if 杠子吗:
 		damage2 = 4
-	elif 刻子:
+	elif 刻子吗:
 		damage2 = 3
-	elif 顺子:
+	elif 顺子吗:
 		damage2 = 3
-	elif 对子:
+	elif 对子吗:
 		damage2 = 2
 	else:
 		damage2 = 1
 	return damage2
+
+func 对子(当前牌组:Array):
+	var 条件 = HU.duplicate()
+	return 条件.对子(当前牌组)
+
+func 顺子(当前牌组:Array):
+	var 条件 = HU.duplicate()
+	return 条件.顺子(当前牌组)
+
+func 刻子(当前牌组:Array):
+	var 条件 = HU.duplicate()
+	return 条件.刻子(当前牌组)
+
+func 杠子(当前牌组:Array):
+	var 条件 = HU.duplicate()
+	return 条件.杠子(当前牌组)
