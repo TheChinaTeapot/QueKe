@@ -37,6 +37,7 @@ func takeDamage(damage:int):
 	stats.take_damage(damage)
 	
 	if stats.刀币 <= 0:
+		global.chooseEnemy.erase(self)
 		queue_free()
 
 

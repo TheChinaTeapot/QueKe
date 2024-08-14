@@ -1,21 +1,22 @@
-[gd_resource type="Resource" script_class="CardPile" load_steps=16 format=3 uid="uid://7nx72jae5jmd"]
+[gd_resource type="Resource" script_class="CardPile" load_steps=17 format=3 uid="uid://7nx72jae5jmd"]
 
 [ext_resource type="Script" path="res://资源/卡牌数据/牌堆/牌堆.gd" id="1_6k88k"]
 [ext_resource type="Resource" uid="uid://dwiq1o5w2w8fd" path="res://资源/卡牌数据/卡牌/卡牌/万/一万.tres" id="1_d5rxq"]
 [ext_resource type="Resource" uid="uid://dqhy6jqngmj03" path="res://资源/卡牌数据/卡牌/卡牌/万/四万.tres" id="1_u4xlx"]
-[ext_resource type="Resource" uid="uid://vbusspt47hmy" path="res://资源/卡牌数据/卡牌/卡牌/字/东.tres" id="2_cude6"]
 [ext_resource type="Resource" uid="uid://dpw44ruewaco5" path="res://资源/卡牌数据/卡牌/卡牌/万/三万.tres" id="2_d2en2"]
-[ext_resource type="Resource" uid="uid://bcbet0oel10lg" path="res://资源/卡牌数据/卡牌/卡牌/字/中.tres" id="3_hletg"]
 [ext_resource type="Resource" uid="uid://da3mh6f57yla5" path="res://资源/卡牌数据/卡牌/卡牌/万/九万.tres" id="3_icc0g"]
 [ext_resource type="Resource" uid="uid://jn1vrwqfcu52" path="res://资源/卡牌数据/卡牌/卡牌/万/六万.tres" id="4_pvwnt"]
 [ext_resource type="Resource" uid="uid://dcbtjw7ogcwm6" path="res://资源/卡牌数据/卡牌/卡牌/万/八万.tres" id="6_1hdnd"]
 [ext_resource type="Resource" uid="uid://bsfglcl83x3sy" path="res://资源/卡牌数据/卡牌/卡牌/万/五万.tres" id="7_dyldc"]
-[ext_resource type="Resource" uid="uid://bv107yb04ivln" path="res://资源/卡牌数据/卡牌/卡牌/字/发.tres" id="7_ta66p"]
+[ext_resource type="Resource" uid="uid://c24hynbmmmoh5" path="res://资源/卡牌数据/卡牌/卡牌/饼/一饼.tres" id="10_a0k06"]
 [ext_resource type="Resource" uid="uid://cudg2qh2k04ew" path="res://资源/卡牌数据/卡牌/卡牌/万/七万.tres" id="10_hqpv2"]
+[ext_resource type="Resource" uid="uid://7gaef4a385t6" path="res://资源/卡牌数据/卡牌/卡牌/饼/二饼.tres" id="11_p2ekk"]
+[ext_resource type="Resource" uid="uid://cowvhrfdga1l1" path="res://资源/卡牌数据/卡牌/卡牌/饼/三饼.tres" id="12_6ercc"]
+[ext_resource type="Resource" uid="uid://ti7imjd1ih2m" path="res://资源/卡牌数据/卡牌/卡牌/饼/四饼.tres" id="13_bm0x2"]
 [ext_resource type="Resource" uid="uid://cvj7yu73hky2o" path="res://资源/卡牌数据/卡牌/卡牌/万/两万.tres" id="13_dnwem"]
-[ext_resource type="Resource" uid="uid://sv0s2neubvjw" path="res://资源/卡牌数据/卡牌/卡牌/字/西.tres" id="14_bbp2n"]
-[ext_resource type="Resource" uid="uid://dxyx31g8dclv2" path="res://资源/卡牌数据/卡牌/卡牌/字/白.tres" id="14_ua5s3"]
+[ext_resource type="Resource" uid="uid://dbnu4vqermfve" path="res://资源/卡牌数据/卡牌/卡牌/饼/五饼.tres" id="14_nty83"]
+[ext_resource type="Resource" uid="uid://c4ulv2hf51bbd" path="res://资源/卡牌数据/卡牌/卡牌/饼/六饼.tres" id="15_c4bwr"]
 
 [resource]
 script = ExtResource("1_6k88k")
-cards = Array[Resource("res://资源/卡牌数据/卡牌/卡牌.gd")]([ExtResource("14_ua5s3"), ExtResource("7_ta66p"), ExtResource("3_hletg"), ExtResource("1_u4xlx"), ExtResource("4_pvwnt"), ExtResource("6_1hdnd"), ExtResource("7_dyldc"), ExtResource("3_icc0g"), ExtResource("2_d2en2"), ExtResource("10_hqpv2"), ExtResource("1_d5rxq"), ExtResource("13_dnwem"), ExtResource("2_cude6"), ExtResource("14_bbp2n")])
+cards = Array[Resource("res://资源/卡牌数据/卡牌/卡牌.gd")]([ExtResource("1_u4xlx"), ExtResource("4_pvwnt"), ExtResource("6_1hdnd"), ExtResource("7_dyldc"), ExtResource("3_icc0g"), ExtResource("2_d2en2"), ExtResource("10_hqpv2"), ExtResource("1_d5rxq"), ExtResource("13_dnwem"), ExtResource("10_a0k06"), ExtResource("11_p2ekk"), ExtResource("12_6ercc"), ExtResource("13_bm0x2"), ExtResource("14_nty83"), ExtResource("15_c4bwr")])

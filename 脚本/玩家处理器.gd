@@ -1,7 +1,7 @@
 extends Node
 class_name PlayerHandler
 
-const HAND_DRAW_INTERVAL := 0.25
+const HAND_DRAW_INTERVAL := 0
 
 @export var hand:Hand
 @export var 雀头:VBoxContainer

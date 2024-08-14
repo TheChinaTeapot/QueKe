@@ -1,6 +1,5 @@
-[gd_scene load_steps=3 format=3 uid="uid://dj34xrfcubn6q"]
+[gd_scene load_steps=2 format=3 uid="uid://dj34xrfcubn6q"]
 
-[ext_resource type="Theme" uid="uid://bpgwqn0l7uvq2" path="res://资源/主题/主题1.tres" id="1_rotg1"]
 [ext_resource type="Script" path="res://脚本/剩余出牌数ui.gd" id="2_306rt"]
 
 [node name="剩余出牌数" type="Control"]
@@ -12,7 +11,6 @@ offset_top = -648.0
 offset_right = 80.0
 offset_bottom = -568.0
 grow_vertical = 0
-theme = ExtResource("1_rotg1")
 script = ExtResource("2_306rt")
 
 [node name="Panel" type="Panel" parent="."]

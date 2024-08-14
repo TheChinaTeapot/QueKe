@@ -2,41 +2,53 @@
 
 [ext_resource type="Script" path="res://脚本/手牌.gd" id="1_fsrk1"]
 [ext_resource type="Script" path="res://脚本/手牌ui.gd" id="1_xoehx"]
-[ext_resource type="Resource" uid="uid://cid82wm0r4v2s" path="res://资源/胡牌/胡牌条件/胡牌检测.tres" id="2_q51ht"]
+[ext_resource type="Resource" uid="uid://cid82wm0r4v2s" path="res://资源/胡牌/胡牌检测.tres" id="2_7ld6m"]
 [ext_resource type="PackedScene" uid="uid://dj34xrfcubn6q" path="res://场景/剩余出牌数.tscn" id="3_fkcqo"]
 [ext_resource type="Theme" uid="uid://bpgwqn0l7uvq2" path="res://资源/主题/主题1.tres" id="4_fg06u"]
 
 [node name="战斗ui" type="CanvasLayer" groups=["UI"]]
 script = ExtResource("1_xoehx")
-"胡牌" = ExtResource("2_q51ht")
+"胡牌" = ExtResource("2_7ld6m")
 
-[node name="手牌" type="HBoxContainer" parent="."]
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_fg06u")
+
+[node name="手牌" type="HBoxContainer" parent="Control"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -20.0
-offset_top = -40.0
+offset_top = -64.0
 offset_right = 20.0
 grow_horizontal = 2
 grow_vertical = 0
 script = ExtResource("1_fsrk1")
 
-[node name="剩余出牌数" parent="." instance=ExtResource("3_fkcqo")]
-offset_left = 157.0
-offset_top = -106.0
-offset_right = 237.0
-offset_bottom = -26.0
+[node name="剩余出牌数" parent="Control" instance=ExtResource("3_fkcqo")]
+layout_mode = 1
+offset_left = 48.0
+offset_top = -112.0
+offset_right = 128.0
+offset_bottom = -32.0
 
-[node name="打出牌" type="Button" parent="."]
+[node name="打出牌" type="Button" parent="Control"]
+layout_mode = 0
 offset_left = 800.0
 offset_top = 520.0
 offset_right = 918.0
 offset_bottom = 569.0
-theme = ExtResource("4_fg06u")
 
-[node name="Label" type="Label" parent="打出牌"]
+[node name="Label" type="Label" parent="Control/打出牌"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -48,14 +60,14 @@ text = "打出牌"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="重新选牌" type="Button" parent="."]
+[node name="重新选牌" type="Button" parent="Control"]
+layout_mode = 0
 offset_left = 676.0
 offset_top = 520.0
 offset_right = 794.0
 offset_bottom = 569.0
-theme = ExtResource("4_fg06u")
 
-[node name="Label" type="Label" parent="重新选牌"]
+[node name="Label" type="Label" parent="Control/重新选牌"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -67,15 +79,15 @@ text = "重新选牌"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="回合结束" type="Button" parent="."]
+[node name="回合结束" type="Button" parent="Control"]
+layout_mode = 0
 offset_left = 552.0
 offset_top = 520.0
 offset_right = 670.0
 offset_bottom = 569.0
-theme = ExtResource("4_fg06u")
 disabled = true
 
-[node name="Label" type="Label" parent="回合结束"]
+[node name="Label" type="Label" parent="Control/回合结束"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -87,14 +99,14 @@ text = "回合结束"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="出牌区背景" type="Panel" parent="."]
+[node name="出牌区背景" type="Panel" parent="Control"]
+layout_mode = 0
 offset_left = 64.0
 offset_top = 240.0
 offset_right = 314.0
 offset_bottom = 508.0
-theme = ExtResource("4_fg06u")
 
-[node name="出牌区" type="HBoxContainer" parent="出牌区背景"]
+[node name="出牌区" type="HBoxContainer" parent="Control/出牌区背景"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -102,38 +114,38 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="出牌区" type="VBoxContainer" parent="出牌区背景/出牌区"]
+[node name="出牌区" type="VBoxContainer" parent="Control/出牌区背景/出牌区"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="出牌区1" type="HBoxContainer" parent="出牌区背景/出牌区/出牌区"]
+[node name="出牌区1" type="HBoxContainer" parent="Control/出牌区背景/出牌区/出牌区"]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 
-[node name="出牌区2" type="HBoxContainer" parent="出牌区背景/出牌区/出牌区"]
+[node name="出牌区2" type="HBoxContainer" parent="Control/出牌区背景/出牌区/出牌区"]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 
-[node name="出牌区3" type="HBoxContainer" parent="出牌区背景/出牌区/出牌区"]
+[node name="出牌区3" type="HBoxContainer" parent="Control/出牌区背景/出牌区/出牌区"]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 
-[node name="出牌区4" type="HBoxContainer" parent="出牌区背景/出牌区/出牌区"]
+[node name="出牌区4" type="HBoxContainer" parent="Control/出牌区背景/出牌区/出牌区"]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 
-[node name="雀头" type="VBoxContainer" parent="出牌区背景/出牌区"]
+[node name="雀头" type="VBoxContainer" parent="Control/出牌区背景/出牌区"]
 custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
 
-[node name="敌人出牌区背景" type="Panel" parent="."]
+[node name="敌人出牌区背景" type="Panel" parent="Control"]
+layout_mode = 0
 offset_left = 840.0
 offset_top = 240.0
 offset_right = 1090.0
 offset_bottom = 508.0
-theme = ExtResource("4_fg06u")
 
-[node name="出牌区" type="HBoxContainer" parent="敌人出牌区背景"]
+[node name="出牌区" type="HBoxContainer" parent="Control/敌人出牌区背景"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -141,30 +153,30 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="出牌区" type="VBoxContainer" parent="敌人出牌区背景/出牌区"]
+[node name="出牌区" type="VBoxContainer" parent="Control/敌人出牌区背景/出牌区"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="出牌区1" type="HBoxContainer" parent="敌人出牌区背景/出牌区/出牌区"]
+[node name="出牌区1" type="HBoxContainer" parent="Control/敌人出牌区背景/出牌区/出牌区"]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 
-[node name="出牌区2" type="HBoxContainer" parent="敌人出牌区背景/出牌区/出牌区"]
+[node name="出牌区2" type="HBoxContainer" parent="Control/敌人出牌区背景/出牌区/出牌区"]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 
-[node name="出牌区3" type="HBoxContainer" parent="敌人出牌区背景/出牌区/出牌区"]
+[node name="出牌区3" type="HBoxContainer" parent="Control/敌人出牌区背景/出牌区/出牌区"]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 
-[node name="出牌区4" type="HBoxContainer" parent="敌人出牌区背景/出牌区/出牌区"]
+[node name="出牌区4" type="HBoxContainer" parent="Control/敌人出牌区背景/出牌区/出牌区"]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 
-[node name="雀头" type="VBoxContainer" parent="敌人出牌区背景/出牌区"]
+[node name="雀头" type="VBoxContainer" parent="Control/敌人出牌区背景/出牌区"]
 custom_minimum_size = Vector2(48, 0)
 layout_mode = 2
 
-[connection signal="pressed" from="打出牌" to="." method="_on_打出牌_pressed"]
-[connection signal="pressed" from="重新选牌" to="." method="_on_重新选牌_pressed"]
-[connection signal="pressed" from="回合结束" to="." method="_on_回合结束_pressed"]
+[connection signal="pressed" from="Control/打出牌" to="." method="_on_打出牌_pressed"]
+[connection signal="pressed" from="Control/重新选牌" to="." method="_on_重新选牌_pressed"]
+[connection signal="pressed" from="Control/回合结束" to="." method="_on_回合结束_pressed"]

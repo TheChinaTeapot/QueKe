@@ -10,4 +10,5 @@ name = "秋"
 "是否赋能" = false
 "是否效果" = false
 choose = false
-"编号" = 43
+"编号" = 55
+"对手牌" = false

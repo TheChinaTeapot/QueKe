@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="胡牌条件" load_steps=2 format=3 uid="uid://b8ylgnni6pwcs"]
+
+[ext_resource type="Script" path="res://资源/胡牌/胡牌条件/胡牌条件.gd" id="1_76hv5"]
+
+[resource]
+script = ExtResource("1_76hv5")
+name = "胡牌条件"
+"番" = 0

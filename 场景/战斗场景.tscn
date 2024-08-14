@@ -25,21 +25,21 @@ position = Vector2(575.5, 271)
 shape = SubResource("RectangleShape2D_fbu00")
 
 [node name="玩家" parent="." instance=ExtResource("2_mlo1n")]
-position = Vector2(88, 0)
+position = Vector2(123, 0)
 stats = ExtResource("3_yuqmt")
 
 [node name="敌人" parent="." instance=ExtResource("3_6vh0o")]
-position = Vector2(546, 0)
+position = Vector2(805, 0)
 stats = ExtResource("5_5vqqm")
 
 [node name="敌人2" parent="." instance=ExtResource("3_6vh0o")]
-position = Vector2(878, 0)
+position = Vector2(1004, 0)
 stats = ExtResource("5_5vqqm")
 
 [node name="手牌ui" parent="." instance=ExtResource("1_b8q2a")]
 
 [node name="玩家处理器" parent="." node_paths=PackedStringArray("hand", "雀头") instance=ExtResource("8_etreu")]
-hand = NodePath("../手牌ui/手牌")
-"雀头" = NodePath("../手牌ui/出牌区背景/出牌区/雀头")
+hand = NodePath("../手牌ui/Control/手牌")
+"雀头" = NodePath("../手牌ui/Control/出牌区背景/出牌区/雀头")
 
 [editable path="手牌ui"]

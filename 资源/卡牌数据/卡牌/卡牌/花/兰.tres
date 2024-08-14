@@ -10,4 +10,5 @@ name = "兰"
 "是否赋能" = false
 "是否效果" = false
 choose = false
-"编号" = 46
+"编号" = 63
+"对手牌" = false

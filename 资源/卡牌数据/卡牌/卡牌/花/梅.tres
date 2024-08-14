@@ -10,4 +10,5 @@ name = "梅"
 "是否赋能" = false
 "是否效果" = false
 choose = false
-"编号" = 45
+"编号" = 61
+"对手牌" = false

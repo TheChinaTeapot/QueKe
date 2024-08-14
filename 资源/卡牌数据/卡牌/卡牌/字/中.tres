@@ -12,4 +12,5 @@ name = "中"
 "是否效果" = false
 "图" = ExtResource("2_x6uuh")
 choose = false
-"编号" = 35
+"编号" = 41
+"对手牌" = false
